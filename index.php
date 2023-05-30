@@ -2,7 +2,7 @@
 
 require 'classes/view/user-view.php';
 
-require 'classes/db.php';
+require 'classes/model/db.php';
 require 'classes/model/user-model.php';
 
 $pdo = require 'partials/connect.php';
