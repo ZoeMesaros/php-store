@@ -1,6 +1,6 @@
 <?php
 
-require '../classes/users/user-model.php';
+require '../classes/model/user-model.php';
 $userModel = new UserModel(require '../partials/connect.php');
 
 if (isset($_POST['username'], $_POST['first_name'], $_POST['last_name'], $_POST['email'])) {

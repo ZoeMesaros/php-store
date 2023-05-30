@@ -1,6 +1,6 @@
 <?php
 
-require_once 'classes/db.php';
+require_once './classes/db.php';
 
 class UserModel extends DB
 {
