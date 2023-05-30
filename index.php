@@ -1,9 +1,9 @@
 <?php
 
-require 'classes/users/user-view.php';
+require 'classes/view/user-view.php';
 
 require 'classes/db.php';
-require 'classes/users/user-model.php';
+require 'classes/model/user-model.php';
 
 $pdo = require 'partials/connect.php';
 

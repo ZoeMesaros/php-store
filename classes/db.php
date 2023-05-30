@@ -10,7 +10,6 @@ class DB
         $this->pdo = $pdo;
     }
 
-    // fylla på med frågor mot databasen
     public function getAll($table)
     {
         $query = "SELECT * FROM $table";
