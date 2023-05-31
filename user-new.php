@@ -11,6 +11,6 @@ $userView = new UserView();
 include 'partials/header.php';
 include 'partials/nav.php';
 
-$userView->renderAllUsersAsList($userModel->getAllUsers());
 
+include 'partials/forms/user-form.php';
 include 'partials/footer.php';

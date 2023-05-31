@@ -35,10 +35,10 @@ class UserModel extends DB
         $statement->execute([$username, $firstname, $lastname, $email, $id]);
     }
 
-    /*                 public function removeUser(int $id)
-                    {
-                        $sql = "DELETE FROM {$this->table} WHERE id = ?";
-                        $statement = $this->pdo->prepare($sql);
-                        $statement->execute([$id]);
-                    } */
+    public function removeUser(int $id)
+    {
+        $sql = "DELETE FROM {$this->table} WHERE id = ?";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$id]);
+    }
 }

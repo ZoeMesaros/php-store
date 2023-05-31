@@ -4,7 +4,6 @@
 <nav>
     <a href="index.php">Home</a>
     <a href="users.php">Users</a>
-    <a href="users.php">Dresses</a>
-    <a href="users.php">For sale</a>
+    <a href="items.php">Dresses</a>
     <a href="users.php">Sold</a>
 </nav>
