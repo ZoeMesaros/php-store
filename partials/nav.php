@@ -5,5 +5,5 @@
     <a href="index.php">Home</a>
     <a href="users.php">Users</a>
     <a href="items.php">Dresses</a>
-    <a href="users.php">Sold</a>
+    <a href="item-sold.php">Sold</a>
 </nav>
