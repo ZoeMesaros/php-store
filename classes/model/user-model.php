@@ -12,6 +12,14 @@ class UserModel extends DB
         return $this->getAll($this->table);
     }
 
+    public function getAllUsersOrderByFirstname()
+    {
+        $query = "SELECT * FROM {$this->table} ORDER BY first_name";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
     public function getUser(int $id)
     {
@@ -40,5 +48,21 @@ class UserModel extends DB
         $sql = "DELETE FROM {$this->table} WHERE id = ?";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$id]);
+    }
+
+    public function getUserItemsForSale(int $id)
+    {
+        $sql = "SELECT u.username, u.id, COUNT(u.id) AS 'Dresses for sale' FROM {$this->table} AS u JOIN items AS i ON u.id = i.userID WHERE u.id LIKE ? AND i.date_sold IS NULL GROUP BY u.id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$id]);
+        return $statement->fetchAll();
+    }
+
+    public function getUserItemsSold(int $id)
+    {
+        $sql = "SELECT u.username, u.id, COUNT(u.id) AS 'Dresses sold' FROM {$this->table} AS u JOIN items AS i ON u.id = i.userID WHERE u.id LIKE ? AND i.date_sold IS NOT NULL GROUP BY u.id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$id]);
+        return $statement->fetchAll();
     }
 }

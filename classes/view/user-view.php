@@ -23,11 +23,9 @@ class UserView
             echo "<td>{$user['last_name']}</td>";
             echo "<td>{$user['email']}</td>";
             echo "<td>";
-            echo "<button class='inline'><a href='user-details.php?id={$user['id']}'>Details</a></button>";
+            echo "<button class='inline'><a href='user-details.php?id={$user['id']}'>Info</a></button>";
             echo "<button class='inline'><a href='user-edit.php?id={$user['id']}'>Edit</a></button>";
-            echo "<form action='form-handlers/user-remove-form-handler.php' method='post'>
-            <button class='inline' type='submit' value='{$user['id']}'>Delete</button>
-            </form>";
+            echo "<button class='inline'><a href='user-delete.php?id={$user['id']}'>Delete</a></button>";
             echo "</td>";
             echo "</tr>";
         }
@@ -48,19 +46,46 @@ class UserView
         echo "</form>";
     }
 
-    public function renderUserDetailForm($user)
+    public function renderDeleteUserForm($user)
     {
-        echo "<h2>User details</h2>";
-        echo "<form action='form-handlers/user-edit-form-handler.php' method='post'>";
-        echo "<br>";
-        echo "Hej";
+        echo "<h2>Remove user {$user[0]['id']}?</h2>";
+        echo "<form action='form-handlers/user-remove-form-handler.php' method='post'>";
         echo "<input type='hidden' value='{$user[0]['id']}' name='id'><br>";
-        echo "<label for='{$user[0]['username']}'>Username<br></label><input type='text' value='{$user[0]['username']}' name='username' ><br>";
-        echo "<label for='{$user[0]['first_name']}'>Name<br></label><input type='text' value='{$user[0]['first_name']}' name='first_name'><br><br>";
-        echo "<label for='{$user[0]['last_name']}'>Surname<br></label><input type='text' value='{$user[0]['last_name']}' name='last_name'><br><br>";
-        echo "<label for='{$user[0]['email']}'>E-mail<br></label><input type='text' value='{$user[0]['email']}' name='email'><br><br>";
-        echo "<button type='submit'>Edit user</button>";
+        echo "<button type='submit'>Delete User</button>";
         echo "</form>";
     }
 
+    public function renderUserDetail($user)
+    {
+        echo "<h2>User details</h2>";
+        echo "<p>id: {$user[0]['id']}</p>";
+        echo "<p>Username: {$user[0]['username']}</p>";
+        echo "<p>First Name: {$user[0]['first_name']}</p>";
+        echo "<p>Surname: {$user[0]['last_name']}</p>";
+        echo "<p>Email Adress: {$user[0]['email']}</p>";
+        echo "<br>";
+        echo "<p>Dresses sold</p>";
+        echo "<p>Total sold for</p>";
+        echo "<p>All dresses</p>";
+        echo "<table>";
+        echo "</table>";
+    }
+
+
+    public function renderUserItemsForSale($user)
+    {
+        if ($user) {
+            echo "<p>Amount of dresses for sale: {$user[0]['Dresses for sale']}</p>";
+        } else
+            echo "<p>Amount of dresses for sale: 0</p>";
+    }
+
+    public function renderUserItemsSold($user)
+    {
+        if ($user) {
+            echo "<p>Number of dresses sold: {$user[0]['Dresses sold']}</p>";
+        } else
+            echo "<p>Number of dresses sold: 0</p>";
+
+    }
 }

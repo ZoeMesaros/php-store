@@ -16,7 +16,7 @@ class ItemView
         echo "<th>Sold By</th>";
         echo "<th>Date added</th>";
         echo "<th>Price</th>";
-        echo "<th>Mark Sold</th>";
+        echo "<th></th>";
         foreach ($items as $item) {
             echo "<tr>";
             echo "<td>{$item['id']}</td>";
@@ -78,7 +78,9 @@ class ItemView
         echo "</table>";
         echo "<form action='form-handlers/item-sell-form-handler.php' method='post'>";
         echo "<label for='{$item[0]['totPrice']}'>Total Price<br></label><input type='text' name='totPrice' ><br>";
-        echo "<label for='{$item[0]['date_sold']}'>Date of sell<br></label><input type='date' name='date_sold'><br>";
+        echo "<label for='{$item[0]['date_sold']}'>Date<br></label><input type='date' name='date_sold' value=" ?>
+        <?php echo date('Y-m-d'); ?>
+        <?php echo "<br>";
         echo "<br>";
         echo "<button type='submit'>Confirm</button>";
         echo "</form>";
@@ -86,3 +88,4 @@ class ItemView
 
 
 }
+?>

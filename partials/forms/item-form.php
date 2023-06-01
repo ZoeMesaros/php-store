@@ -37,5 +37,6 @@ $brandModel = new BrandModel(connect($host, $db, $user, $password));
     </select><br>
     <p><a href="user-new.php">Add new user here</a></p>
     <label for="price">Price<br></label><input type="text" name="price" id="price"><br><br>
+    <input class="hidden" type="date" name='date_sold' value="<?php echo date('Y-m-d'); ?>"><br><br>
     <button type="submit">Add item</button>
 </form>
