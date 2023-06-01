@@ -60,4 +60,14 @@ class UserController
 
         }
     }
+
+    public function dressAll()
+    {
+        if (isset($_GET['id'])) {
+            $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+            $one = $this->model->getUserAllItems($id);
+            $this->view->renderUserAllitems($one);
+
+        }
+    }
 }

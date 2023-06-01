@@ -75,17 +75,44 @@ class UserView
     public function renderUserItemsForSale($user)
     {
         if ($user) {
-            echo "<p>Amount of dresses for sale: {$user[0]['Dresses for sale']}</p>";
+            echo "<p>Dresses for sale: {$user[0]['Dresses for sale']}</p>";
         } else
-            echo "<p>Amount of dresses for sale: 0</p>";
+            echo "<p>Dresses for sale: 0</p>";
     }
 
     public function renderUserItemsSold($user)
     {
         if ($user) {
-            echo "<p>Number of dresses sold: {$user[0]['Dresses sold']}</p>";
+            echo "<p>Dresses sold: {$user[0]['Dresses sold']}</p>";
         } else
-            echo "<p>Number of dresses sold: 0</p>";
+            echo "<p>Dresses sold: 0</p>";
 
+    }
+
+    public function renderUserAllitems($user)
+    {
+        echo "<p>All dresses, sold and not sold<p>";
+        echo "<table id='users'>";
+        echo "<th>Username</th>";
+        echo "<th>Item</th>";
+        echo "<th>Brand</th>";
+        echo "<th>Color</th>";
+        echo "<th>Price</th>";
+        echo "<th>Total price</th>";
+        echo "<th>Date added</th>";
+        echo "<th>Date sold</th>";
+        echo "<tr>";
+        foreach ($user as $key => $value) {
+            echo "<td>{$user[$key]['username']}</td>";
+            echo "<td>{$user[$key]['title']}</td>";
+            echo "<td>{$user[$key]['name']}</td>";
+            echo "<td>{$user[$key]['color']}</td>";
+            echo "<td>{$user[$key]['price']}</td>";
+            echo "<td>{$user[$key]['totPrice']}</td>";
+            echo "<td>{$user[$key]['date_added']}</td>";
+            echo "<td>{$user[$key]['date_sold']}</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
     }
 }

@@ -65,4 +65,12 @@ class UserModel extends DB
         $statement->execute([$id]);
         return $statement->fetchAll();
     }
+
+    public function getUserAllItems(int $id)
+    {
+        $sql = "SELECT items.title, items.color, items.price, items.date_added, items.date_sold, items.totPrice, users.username, users.first_name, users.last_name, brands.name FROM `items` JOIN `users` ON users.id = items.userID JOIN `brands` ON brands.id = items.brandID WHERE users.id = ?";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$id]);
+        return $statement->fetchAll();
+    }
 }
