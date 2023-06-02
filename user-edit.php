@@ -13,6 +13,6 @@ $userController = new UserController($userModel, $userView);
 include 'partials/header.php';
 include 'partials/nav.php';
 
-$userController->start();
+$userController->edit();
 
 include 'partials/footer.php';

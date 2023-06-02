@@ -11,7 +11,7 @@ class UserController
         $this->view = $userView;
     }
 
-    public function start()
+    public function edit()
     {
         if (isset($_GET['id'])) {
             $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);

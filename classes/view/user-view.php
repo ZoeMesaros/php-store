@@ -48,7 +48,8 @@ class UserView
 
     public function renderDeleteUserForm($user)
     {
-        echo "<h2>Remove user {$user[0]['id']}?</h2>";
+        echo "<h2>Remove user</h2>";
+        echo "<p>Do you wish to remove {$user[0]['first_name']} {$user[0]['last_name']} ({$user[0]['username']}) with ID: {$user[0]['id']}?</p>";
         echo "<form action='form-handlers/user-remove-form-handler.php' method='post'>";
         echo "<input type='hidden' value='{$user[0]['id']}' name='id'><br>";
         echo "<button type='submit'>Delete User</button>";

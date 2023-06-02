@@ -44,11 +44,11 @@ class ItemModel extends DB
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function addItem(string $title, string $color, int $brandid, int $userid, float $price, string $dateadded)
+    public function addItem(string $title, string $color, int $brandid, int $userid, int $price /* , string $dateadded */)
     {
-        $sql = "INSERT INTO {$this->table} (title,color,brandID,userID,price,date_added) VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO {$this->table} (title,color,brandID,userID,price,date_added) VALUES (?,?,?,?,?/* ,? */)";
         $statement = $this->pdo->prepare($sql);
-        $statement->execute([$title, $color, $brandid, $userid, $price, $dateadded]);
+        $statement->execute([$title, $color, $brandid, $userid, $price /* , $dateadded */]);
     }
 
 }
