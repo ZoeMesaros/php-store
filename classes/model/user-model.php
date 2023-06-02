@@ -20,7 +20,6 @@ class UserModel extends DB
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
     public function getUser(int $id)
     {
         $sql = "SELECT * FROM {$this->table} WHERE id= ?";
