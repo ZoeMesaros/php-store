@@ -11,6 +11,6 @@ $itemView = new ItemView();
 include 'partials/header.php';
 include 'partials/nav.php';
 
-$itemView->renderAllItemsWithUsersAndBrandsAsList($itemModel->getAllItemsWithUsersAndBrands());
+$itemView->renderAllItemsWithUsersAndBrandsAsList($itemModel->getAllItemsWithUsersAndBrandsAndTax());
 
 include 'partials/footer.php';

@@ -15,6 +15,7 @@ class ItemView
         echo "<th>Sold By</th>";
         echo "<th>Date added</th>";
         echo "<th>Price in SEK</th>";
+        echo "<th>Price with VAT</th>";
         echo "<th></th>";
         foreach ($items as $item) {
             echo "<tr>";
@@ -25,6 +26,7 @@ class ItemView
             echo "<td>{$item['username']}</td>";
             echo "<td>{$item['date_added']}</td>";
             echo "<td>{$item['price']}</td>";
+            echo "<td>{$item['TotalTax']}</td>";
             echo "<td><button class='inline'><a href='item-sell.php?id={$item['id']}'>Sell This Item</a></button>";
             echo "<button class='inline'><a href='item-edit.php?id={$item['id']}'>Edit</a></button>";
             echo "<button class='inline'><a href='item-delete.php?id={$item['id']}'>Delete</a></button></td>";
@@ -37,24 +39,26 @@ class ItemView
     {
         echo "<h3>Sold dresses</h3>";
         echo "<table id='users'>";
-        echo "<th>ID</th>";
         echo "<th>Item</th>";
         echo "<th>Color</th>";
         echo "<th>Brand</th>";
         echo "<th>Sold by</th>";
         echo "<th>Date sold</th>";
         echo "<th>Price in SEK</th>";
-        echo "<th>Total Price in SEK</th>";
+        echo "<th>Price with VAT</th>";
+        echo "<th>Total user</th>";
+        echo "<th>Total company</th>";
         foreach ($items as $item) {
             echo "<tr>";
-            echo "<td>{$item['id']}</td>";
             echo "<td>{$item['title']}</td>";
             echo "<td>{$item['color']}</td>";
             echo "<td>{$item['name']}</td>";
             echo "<td>{$item['username']}</td>";
             echo "<td>{$item['date_sold']}</td>";
             echo "<td>{$item['price']}</td>";
-            echo "<td>{$item['totPrice']}</td>";
+            echo "<td>{$item['TotalWithTax']}</td>";
+            echo "<td>{$item['toUser']}</td>";
+            echo "<td>{$item['toCompany']}</td>";
             echo "</tr>";
         }
         echo "</table>";

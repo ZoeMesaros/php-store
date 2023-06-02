@@ -28,22 +28,21 @@ class ItemModel extends DB
         return $statement->fetchAll();
     }
 
-    public function getAllItemsWithUsersAndBrands()
+    public function getAllItemsWithUsersAndBrandsAndTax()
     {
-        $sql = "SELECT users.username, brands.name, items.id, items.title, items.color, items.price, items.date_added, items.date_sold, items.totPrice FROM `users` JOIN `items` ON users.id = items.userID JOIN `brands` ON brands.id = items.brandID WHERE date_sold IS NULL ORDER BY date_added";
+        $sql = "SELECT items.id, items.title, items.color, items.date_added, items.price, users.username, brands.name, SUM(items.price *  1.25) AS TotalTax from items JOIN users ON users.id = items.userID JOIN brands ON brands.id = items.brandID WHERE date_sold IS NULL GROUP BY items.id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getAllSoldItemsWithUsersAndBrands()
+    public function getAllSoldItemsWithTax()
     {
-        $sql = "SELECT users.username, brands.name, items.id, items.title, items.color, items.price, items.date_added, items.date_sold, items.totPrice, items.date_sold FROM `users` JOIN `items` ON users.id = items.userID JOIN `brands` ON brands.id = items.brandID WHERE date_sold IS NOT NULL";
+        $sql = "SELECT items.title, items.color, items.date_sold, items.price, users.username, brands.name, SUM(items.price * 1.25) AS TotalWithTax, SUM((items.price * 1.25)*(1 - 0.4)) AS toUser , SUM((items.price * 1.25)*(1 - 0.6)) AS toCompany from items JOIN users ON users.id = items.userID JOIN brands ON brands.id = items.brandID WHERE date_sold IS NOT NULL GROUP BY items.id; ";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
-
     public function addItem(string $title, string $color, int $brandid, int $userid, int $price, string $dateadded)
     {
         $sql = "INSERT INTO {$this->table} (title,color,brandID,userID,price,date_added) VALUES (?,?,?,?,?,?)";
