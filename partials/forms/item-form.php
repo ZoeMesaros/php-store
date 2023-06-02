@@ -36,8 +36,8 @@ $brandModel = new BrandModel(connect($host, $db, $user, $password));
     </select><br>
     <p><a href="user-new.php">or add new</a></p>
     <label for="price">Price in SEK<br>
-    </label><input type="number" id="price"><br>
+    </label><input type="number" id="price" name="price"><br>
     <p>Tax is added automatically (25%)</p>
-    <!--     <input class="hidden" type="date" name='date_added' value="<?php /* echo date('Y-m-d'); */?>"><br> -->
+    <input class="hidden" type="date" name='date_added' value="<?php echo date('Y-m-d'); ?>"><br>
     <button type="submit">Add item</button>
 </form>

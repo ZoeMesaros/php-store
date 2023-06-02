@@ -11,22 +11,12 @@ class ItemController
         $this->view = $itemView;
     }
 
-    public function sellItem()
-    {
-        if (isset($_GET['id'])) {
-            $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-            $one = $this->model->getItemWithBrandAndUsername($id);
-            $this->view->renderItemSellForm($one);
-
-        }
-    }
-
     public function edit()
     {
         if (isset($_GET['id'])) {
             $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
             $one = $this->model->getItem($id);
-            $this->view->renderEditBrandForm($one);
+            $this->view->renderEditItemForm($one);
 
         }
     }
@@ -35,8 +25,8 @@ class ItemController
     {
         if (isset($_GET['id'])) {
             $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-            $one = $this->model->getBrand($id);
-            $this->view->renderDeleteBrandForm($one);
+            $one = $this->model->getItem($id);
+            $this->view->renderDeleteItemForm($one);
 
         }
     }

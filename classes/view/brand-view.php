@@ -31,7 +31,7 @@ class BrandView
         echo "<br>";
         echo "<input type='hidden' value='{$brand[0]['id']}' name='id'><br>";
         echo "<label for='{$brand[0]['name']}'>Brand Name<br></label><input type='text' value='{$brand[0]['name']}' name='name' ><br>";
-        echo "<button type='submit'>Edit user</button>";
+        echo "<button type='submit'>Edit brand</button>";
         echo "</form>";
     }
 

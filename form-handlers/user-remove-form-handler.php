@@ -12,7 +12,7 @@ try {
     }
 } catch (PDOException $ex) {
     if ($ex->getCode() === '23000') {
-        echo "User information is being used elsewhere. Delete connected data first.";
+        echo "User information is being used elsewhere.";
         echo "<br><br>";
         echo "<button><a href='../users.php'>Go Back<a></button>";
     }

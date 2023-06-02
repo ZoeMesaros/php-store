@@ -12,7 +12,7 @@ try {
     }
 } catch (PDOException $ex) {
     if ($ex->getCode() === '23000') {
-        echo "Brand information is being used elsewhere. Delete connected data first.";
+        echo "Brand information is being used elsewhere.";
         echo "<br><br>";
         echo "<button><a href='../brands.php'>Go Back<a></button>";
     }
