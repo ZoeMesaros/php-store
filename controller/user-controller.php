@@ -70,4 +70,14 @@ class UserController
 
         }
     }
+
+    public function dressSoldFor()
+    {
+        if (isset($_GET['id'])) {
+            $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+            $one = $this->model->getUserSoldFor($id);
+            $this->view->renderTotalSoldFor($one);
+
+        }
+    }
 }

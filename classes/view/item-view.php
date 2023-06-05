@@ -46,8 +46,8 @@ class ItemView
         echo "<th>Date sold</th>";
         echo "<th>Price in SEK</th>";
         echo "<th>Price with VAT</th>";
-        echo "<th>Total user</th>";
-        echo "<th>Total company</th>";
+        echo "<th>Total user 60%</th>";
+        echo "<th>Total company 40%</th>";
         foreach ($items as $item) {
             echo "<tr>";
             echo "<td>{$item['title']}</td>";
@@ -85,6 +85,39 @@ class ItemView
         echo "<input type='hidden' value='{$item[0]['id']}' name='id'><br>";
         echo "<button type='submit'>Delete item</button>";
         echo "</form>";
+    }
+
+    public function renderItemSellForm($item)
+    {
+        echo "<h2>Sell item</h2>";
+        echo "<form action='form-handlers/item-sell-form-handler.php' method='post'>";
+        echo "<br>";
+        echo "<input type='hidden' value='{$item[0]['id']}' name='id'><br>";
+        echo "<label for='{$item[0]['date_sold']}'>Sell on date<br></label><input type='date' name='date_sold' value=";
+        echo date('Y-m-d');
+        echo "><br>";
+        echo "<button type='submit'>Sell Item</button>";
+        echo "</form>";
+    }
+
+    public function renderTotSales($item)
+    {
+        echo "<table id='users'>";
+        echo "<th>Dresses sold</th>";
+        echo "<tr>";
+        echo "<td>{$item[0]['TotSales']}</td>";
+        echo "</tr>";
+        echo "</table>";
+    }
+
+    public function renderTotForSale($item)
+    {
+        echo "<table id='users'>";
+        echo "<th>Dresses for sale</th>";
+        echo "<tr>";
+        echo "<td>{$item[0]['TotForSale']}</td>";
+        echo "</tr>";
+        echo "</table>";
     }
 
 }

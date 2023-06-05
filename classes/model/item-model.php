@@ -20,6 +20,8 @@ class ItemModel extends DB
         return $statement->fetchAll();
     }
 
+
+
     public function getItemWithBrandAndUsername(int $id)
     {
         $sql = "SELECT items.id, items.title, items.color, items.price, items.date_added, items.date_sold, items.totPrice, brands.name, users.username FROM `items` JOIN `brands` ON brands.id = items.brandID JOIN `users` ON users.id = items.userID WHERE items.id = ?";
@@ -62,6 +64,29 @@ class ItemModel extends DB
         $sql = "UPDATE {$this->table} SET title = ?, color = ?, price = ? WHERE id = ?";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$title, $color, $price, $id]);
+    }
+
+    public function sellItem(string $datesold, int $id)
+    {
+        $sql = "UPDATE {$this->table} SET date_sold = ? WHERE id = ?";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$datesold, $id]);
+    }
+
+    public function getTotAmountOfSales()
+    {
+        $sql = "SELECT COUNT(*) AS TotSales FROM {$this->table} AS i WHERE i.date_sold IS NOT NULL";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getTotForSale()
+    {
+        $sql = "SELECT COUNT(*) AS TotForSale FROM items AS i WHERE i.date_sold IS NULL";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }

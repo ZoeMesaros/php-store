@@ -65,11 +65,15 @@ class UserView
         echo "<p>Surname: {$user[0]['last_name']}</p>";
         echo "<p>Email Adress: {$user[0]['email']}</p>";
         echo "<br>";
-        echo "<p>Dresses sold</p>";
-        echo "<p>Total sold for</p>";
-        echo "<p>All dresses</p>";
-        echo "<table>";
-        echo "</table>";
+    }
+
+    public function renderTotalSoldFor($user)
+    {
+        echo "<h2>Sell details</h2>";
+        if ($user) {
+            echo "<p>Total to user: {$user[0]['toUser']} SEK</p>";
+        } else
+            echo "<p>Total sold for: 0 SEK</p>";
     }
 
 
@@ -86,20 +90,20 @@ class UserView
         if ($user) {
             echo "<p>Dresses sold: {$user[0]['Dresses sold']}</p>";
         } else
-            echo "<p>Dresses sold: 0</p>";
+            echo "<p>Dresses sold: 0</p><br>";
 
     }
 
     public function renderUserAllitems($user)
     {
-        echo "<p>All dresses, sold and not sold<p>";
+        echo "<br><p>All dresses, sold and not sold<p>";
         echo "<table id='users'>";
         echo "<th>Username</th>";
         echo "<th>Item</th>";
         echo "<th>Brand</th>";
         echo "<th>Color</th>";
-        echo "<th>Price</th>";
-        echo "<th>Total price</th>";
+        echo "<th>Total</th>";
+        echo "<th>Total with tax</th>";
         echo "<th>Date added</th>";
         echo "<th>Date sold</th>";
         echo "<tr>";
@@ -109,7 +113,7 @@ class UserView
             echo "<td>{$user[$key]['name']}</td>";
             echo "<td>{$user[$key]['color']}</td>";
             echo "<td>{$user[$key]['price']}</td>";
-            echo "<td>{$user[$key]['totPrice']}</td>";
+            echo "<td>{$user[$key]['TotalWithTax']}</td>";
             echo "<td>{$user[$key]['date_added']}</td>";
             echo "<td>{$user[$key]['date_sold']}</td>";
             echo "</tr>";

@@ -14,6 +14,7 @@ include 'partials/header.php';
 include 'partials/nav.php';
 
 $userController->details();
+$userController->dressSoldFor();
 $userController->dressForSale();
 $userController->dressSold();
 $userController->dressAll();

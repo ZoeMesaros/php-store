@@ -67,7 +67,15 @@ class UserModel extends DB
 
     public function getUserAllItems(int $id)
     {
-        $sql = "SELECT items.title, items.color, items.price, items.date_added, items.date_sold, items.totPrice, users.username, users.first_name, users.last_name, brands.name FROM `items` JOIN `users` ON users.id = items.userID JOIN `brands` ON brands.id = items.brandID WHERE users.id = ?";
+        $sql = "SELECT items.title, items.color, items.price, items.date_added, items.date_sold, SUM(items.price * 1.25) AS TotalWithTax, users.username, users.first_name, users.last_name, brands.name FROM `items` JOIN `users` ON users.id = items.userID JOIN `brands` ON brands.id = items.brandID WHERE users.id = ? GROUP BY items.id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$id]);
+        return $statement->fetchAll();
+    }
+
+    public function getUserSoldFor(int $id)
+    {
+        $sql = "SELECT u.username, u.id, SUM((i.price * 1.25)*(1 - 0.4)) AS toUser FROM {$this->table} AS u JOIN items AS i ON u.id = i.userID WHERE u.id LIKE ? AND i.date_sold IS NOT NULL GROUP BY i.id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$id]);
         return $statement->fetchAll();
