@@ -3,8 +3,8 @@
 </a>
 <nav>
     <a href="index.php">Home</a>
-    <a href="users.php">Users</a>
     <a href="items.php">Dresses for sale</a>
+    <a href="item-sold.php">Dresses Sold</a>
+    <a href="users.php">Users</a>
     <a href="brands.php">Brands</a>
-    <a href="item-sold.php">Sold</a>
 </nav>

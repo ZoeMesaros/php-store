@@ -1,22 +1,23 @@
 <?php
 
-require 'classes/view/item-view.php';
+require 'classes/view/meta-data-view.php';
 
 require 'classes/model/db.php';
-require 'classes/model/item-model.php';
+require 'classes/model/meta-data-model.php';
 
 $pdo = require 'partials/connect.php';
 
 $db = new DB($pdo);
-$itemModel = new ItemModel($pdo);
-$itemView = new ItemView();
+$dataModel = new MetaDataModel($pdo);
+$dataView = new MetaDataView();
 
 
 
 include 'partials/header.php';
 include 'partials/nav.php';
 
-$itemView->renderTotSales($itemModel->getTotAmountOfSales());
-$itemView->renderTotForSale($itemModel->getTotForSale());
+$dataView->renderTotForSale($dataModel->getTotForSale());
+$dataView->renderTotSales($dataModel->getTotAmountOfSales());
+$dataView->renderSalesData($dataModel->getSalesData());
 
 include 'partials/footer.php';

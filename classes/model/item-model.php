@@ -40,7 +40,7 @@ class ItemModel extends DB
 
     public function getAllSoldItemsWithTax()
     {
-        $sql = "SELECT items.title, items.color, items.date_sold, items.price, users.username, brands.name, SUM(items.price * 1.25) AS TotalWithTax, SUM((items.price * 1.25)*(1 - 0.4)) AS toUser , SUM((items.price * 1.25)*(1 - 0.6)) AS toCompany from items JOIN users ON users.id = items.userID JOIN brands ON brands.id = items.brandID WHERE date_sold IS NOT NULL GROUP BY items.id; ";
+        $sql = "SELECT items.title, items.color, items.date_sold, items.price, users.username, brands.name, SUM(items.price * 1.25) AS TotalWithTax, SUM((items.price * 1.25)*(1 - 0.4)) AS toUser , SUM((items.price * 1.25)*(1 - 0.6)) AS toCompany from items JOIN users ON users.id = items.userID JOIN brands ON brands.id = items.brandID WHERE date_sold IS NOT NULL GROUP BY items.id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
