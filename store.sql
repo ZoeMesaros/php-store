@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 06 jun 2023 kl 12:00
+-- Tid vid skapande: 06 jun 2023 kl 13:09
 -- Serverversion: 10.4.28-MariaDB
 -- PHP-version: 8.2.4
 
@@ -42,7 +42,7 @@ INSERT INTO `brands` (`id`, `name`) VALUES
 (3, 'Vivien of holloway'),
 (4, 'Top Vintage'),
 (5, 'Unique Vintage'),
-(11, 'Voodoo Vixen');
+(6, 'Voodoo Vixen');
 
 -- --------------------------------------------------------
 
@@ -66,12 +66,12 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `title`, `color`, `brandID`, `userID`, `price`, `date_added`, `date_sold`) VALUES
-(1, 'Midori Dress', 'Mint', 1, 1, 1000, '2023-05-28', NULL),
-(3, 'Bettie Polkadot Swing Dress', 'Red', 4, 4, 500, '2023-05-17', '2023-05-31'),
-(4, 'Grace Pink Rose', 'White', 3, 3, 1000, '2023-05-11', '2023-05-13'),
-(7, 'Floral Dress', 'Purple', 3, 1, 350, '2023-05-28', NULL),
-(15, 'Kitty Dress', 'Yellow', 3, 3, 500, '2023-06-05', '2023-06-05'),
-(16, 'Jinkx Floral Tropical Dress', 'Green', 11, 4, 350, '2023-06-05', NULL);
+(1, 'Midori Dress', 'Mint green', 1, 1, 1000, '2023-05-28', NULL),
+(2, 'Bettie Polkadot Swing Dress', 'Red', 4, 2, 500, '2023-05-17', '2023-05-31'),
+(3, 'Grace Pink Rose', 'White', 3, 1, 1000, '2023-05-11', '2023-05-13'),
+(4, 'Floral Dress', 'Purple', 3, 2, 340, '2023-05-28', NULL),
+(5, 'Kitty Dress', 'Yellow', 3, 3, 500, '2023-06-05', '2023-06-05'),
+(6, 'Jinkx Floral Tropical Dress', 'Green', 6, 1, 350, '2023-06-05', NULL);
 
 -- --------------------------------------------------------
 
@@ -93,8 +93,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `first_name`, `last_name`, `email`) VALUES
 (1, 'DressLover', 'Anna', 'Svensson', 'anna.s@gmail.com'),
-(3, 'Dressy', 'Bellaa', 'Andersson', 'b.a@hotmail.com'),
-(4, 'RetroDress', 'Elsa', 'Svensson', 'elsa@gmail.com');
+(2, 'Dressy', 'Bellaa', 'Andersson', 'b.a@hotmail.com'),
+(3, 'RetroDress', 'Elsa', 'Svensson', 'elsa@gmail.com');
 
 --
 -- Index för dumpade tabeller
