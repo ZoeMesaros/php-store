@@ -5,10 +5,10 @@ class UserView
 
     public function renderAllUsersAsList(array $users): void
     {
-        echo "<h3>Handle Users</h3>";
-        echo "<button><a href='user-new.php'>Add new user</a></button>";
+        echo "<h3 class='pageTitle'>Handle Users</h3>";
+        echo "<button class='addButton'><a href='user-new.php'>Add new user</a></button>";
         echo "<br><br>";
-        echo "<table id='users'>";
+        echo "<table class='center'>";
         echo "<th>ID</th>";
         echo "<th>Username</th>";
         echo "<th>Name</th>";
@@ -23,9 +23,9 @@ class UserView
             echo "<td>{$user['last_name']}</td>";
             echo "<td>{$user['email']}</td>";
             echo "<td>";
-            echo "<button class='inline'><a href='user-details.php?id={$user['id']}'>Info</a></button>";
-            echo "<button class='inline'><a href='user-edit.php?id={$user['id']}'>Edit</a></button>";
-            echo "<button class='inline'><a href='user-delete.php?id={$user['id']}'>Delete</a></button>";
+            echo "<button class='btnGreen'><a href='user-details.php?id={$user['id']}'>Info</a></button>";
+            echo "<button class='btnEdit'><a href='user-edit.php?id={$user['id']}'>Edit</a></button>";
+            echo "<button class='btnDel'><a href='user-delete.php?id={$user['id']}'>Delete</a></button>";
             echo "</td>";
             echo "</tr>";
         }
@@ -35,7 +35,7 @@ class UserView
     public function renderEditUserForm($user)
     {
         echo "<h2>Edit user</h2>";
-        echo "<form action='form-handlers/user-edit-form-handler.php' method='post'>";
+        echo "<form class='centerForm' action='form-handlers/user-edit-form-handler.php' method='post'>";
         echo "<br>";
         echo "<input type='hidden' value='{$user[0]['id']}' name='id'><br>";
         echo "<label for='{$user[0]['username']}'>Username<br></label><input type='text' value='{$user[0]['username']}' name='username' ><br>";
@@ -50,7 +50,7 @@ class UserView
     {
         echo "<h2>Remove user</h2>";
         echo "<p>Do you wish to remove {$user[0]['first_name']} {$user[0]['last_name']} ({$user[0]['username']}) with ID: {$user[0]['id']}?</p>";
-        echo "<form action='form-handlers/user-remove-form-handler.php' method='post'>";
+        echo "<form class='centerForm' action='form-handlers/user-remove-form-handler.php' method='post'>";
         echo "<input type='hidden' value='{$user[0]['id']}' name='id'><br>";
         echo "<button type='submit'>Delete User</button>";
         echo "</form>";
@@ -97,7 +97,7 @@ class UserView
     public function renderUserAllitems($user)
     {
         echo "<br><p>All dresses, sold and not sold<p>";
-        echo "<table id='users'>";
+        echo "<table class='center'>";
         echo "<th>Username</th>";
         echo "<th>Item</th>";
         echo "<th>Brand</th>";

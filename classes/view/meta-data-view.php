@@ -4,7 +4,7 @@ class MetaDataView
 {
     public function renderTotSales($data)
     {
-        echo "<table id='users'>";
+        echo "<table class='center'>";
         echo "<th>Dresses sold</th>";
         echo "<tr>";
         echo "<td>{$data[0]['TotSales']}</td>";
@@ -14,7 +14,7 @@ class MetaDataView
 
     public function renderTotForSale($data)
     {
-        echo "<table id='users'>";
+        echo "<table class='center'>";
         echo "<th>Dresses for sale</th>";
         echo "<tr>";
         echo "<td>{$data[0]['TotForSale']}</td>";
@@ -24,7 +24,7 @@ class MetaDataView
 
     public function renderSalesData($data)
     {
-        echo "<table id='users'>";
+        echo "<table class='center'>";
         echo "<th>Total</th>";
         echo "<th>Total with VAT</th>";
         echo "<th>Total users</th>";

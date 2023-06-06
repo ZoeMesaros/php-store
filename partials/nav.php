@@ -1,10 +1,10 @@
 <a class="link" href="index.php">
-    <h1>&#128087; The Vintage Dress &#128087;</h1>
+    <img src="img/vintagedresslogo.png" alt="The Vintage Dress">
 </a>
 <nav>
     <a href="index.php">Home</a>
-    <a href="items.php">Dresses for sale</a>
-    <a href="item-sold.php">Dresses Sold</a>
+    <a href="items.php">For sale</a>
+    <a href="item-sold.php">Sold</a>
     <a href="users.php">Users</a>
     <a href="brands.php">Brands</a>
 </nav>
