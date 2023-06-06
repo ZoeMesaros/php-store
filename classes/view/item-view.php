@@ -8,7 +8,6 @@ class ItemView
         echo "<button class='addButton'><a href='item-new.php'>Add new item</a></button>";
         echo "<br><br>";
         echo "<table class='center'>";
-        echo "<th>ID</th>";
         echo "<th>Name</th>";
         echo "<th>Color</th>";
         echo "<th>Brand</th>";
@@ -19,7 +18,6 @@ class ItemView
         echo "<th></th>";
         foreach ($items as $item) {
             echo "<tr>";
-            echo "<td>{$item['id']}</td>";
             echo "<td>{$item['title']}</td>";
             echo "<td>{$item['color']}</td>";
             echo "<td>{$item['name']}</td>";
