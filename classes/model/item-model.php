@@ -20,8 +20,6 @@ class ItemModel extends DB
         return $statement->fetchAll();
     }
 
-
-
     public function getItemWithBrandAndUsername(int $id)
     {
         $sql = "SELECT items.id, items.title, items.color, items.price, items.date_added, items.date_sold, items.totPrice, brands.name, users.username FROM `items` JOIN `brands` ON brands.id = items.brandID JOIN `users` ON users.id = items.userID WHERE items.id = ?";
@@ -32,7 +30,7 @@ class ItemModel extends DB
 
     public function getAllItemsWithUsersAndBrandsAndTax()
     {
-        $sql = "SELECT items.id, items.title, items.color, items.date_added, items.price, users.username, brands.name, SUM(items.price *  1.25) AS TotalTax from items JOIN users ON users.id = items.userID JOIN brands ON brands.id = items.brandID WHERE date_sold IS NULL GROUP BY items.id";
+        $sql = "SELECT items.id, items.title, items.color, items.date_added, items.price, users.username, brands.name, SUM(items.price *  1.25) AS TotalWithTax, SUM((items.price * 1.25) - (items.price)) AS TotTax from items JOIN users ON users.id = items.userID JOIN brands ON brands.id = items.brandID WHERE date_sold IS NULL GROUP BY items.id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -40,7 +38,7 @@ class ItemModel extends DB
 
     public function getAllSoldItemsWithTax()
     {
-        $sql = "SELECT items.title, items.color, items.date_sold, items.price, users.username, brands.name, SUM(items.price * 1.25) AS TotalWithTax, SUM((items.price * 1.25)*(1 - 0.4)) AS toUser , SUM((items.price * 1.25)*(1 - 0.6)) AS toCompany from items JOIN users ON users.id = items.userID JOIN brands ON brands.id = items.brandID WHERE date_sold IS NOT NULL GROUP BY items.id";
+        $sql = "SELECT items.title, items.color, items.date_sold, items.price, users.username, brands.name, SUM(items.price * 1.25) AS TotalWithTax, SUM((items.price * 1.25) - (items.price)) AS TotTax, SUM((items.price * 1.25)*(1 - 0.4)) AS toUser, SUM((items.price * 1.25)*(1 - 0.6)) AS toCompany from items JOIN users ON users.id = items.userID JOIN brands ON brands.id = items.brandID WHERE date_sold IS NOT NULL GROUP BY items.id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);

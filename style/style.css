@@ -139,10 +139,10 @@ td {
 .tablemeta {
   margin-left: auto;
   margin-right: auto;
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 20%;
+  width: 40%;
 }
 
 .tablemeta td,
@@ -152,11 +152,11 @@ td {
 }
 
 .tablemeta tr:nth-child(even) {
-  background-color: #f8f8f8e9;
+  background-color: #ffffffe9;
 }
 
 .tablemeta tr:hover {
-  background-color: rgb(198, 198, 198);
+  background-color: rgb(197, 197, 197);
 }
 
 .tablemeta tr,
@@ -175,6 +175,14 @@ td {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #c77b71ff;
   color: rgb(255, 255, 255);
+}
+
+.errorMsg {
+  color: red;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btnDel {

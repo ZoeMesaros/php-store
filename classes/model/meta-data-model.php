@@ -44,12 +44,19 @@ class MetaDataModel extends DB
 
     public function getSalesData()
     {
-        $sql = "SELECT SUM(items.price) AS TotBefTax, SUM(items.price * 1.25) AS TotAfTax, SUM((items.price * 1.25)*(1 - 0.4)) AS TotUser, SUM((items.price * 1.25)*(1 - 0.6)) AS TotCompany from {$this->tableItems} JOIN {$this->tableUsers} ON users.id = items.userID JOIN {$this->tableBrands} ON brands.id = items.brandID WHERE date_sold IS NOT NULL";
+        $sql = "SELECT SUM(items.price) AS TotBefTax, SUM(items.price * 1.25) AS TotAfTax,  SUM((items.price * 1.25) - (items.price)) AS TotTax, SUM((items.price * 1.25)*(1 - 0.4)) AS TotUser, SUM((items.price * 1.25)*(1 - 0.6)) AS TotCompany from {$this->tableItems} JOIN {$this->tableUsers} ON users.id = items.userID JOIN {$this->tableBrands} ON brands.id = items.brandID WHERE date_sold IS NOT NULL";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getMostExpensiveSold()
+    {
+        $sql = "SELECT items.title, items.color, items.date_sold, items.price, users.username, brands.name, SUM(items.price * 1.25) AS TotalWithTax from items JOIN users ON users.id = items.userID JOIN brands ON brands.id = items.brandID WHERE date_sold IS NOT NULL ORDER BY items.price ASC LIMIT 1";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 
 }

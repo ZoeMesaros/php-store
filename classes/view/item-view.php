@@ -15,6 +15,7 @@ class ItemView
         echo "<th>Date added</th>";
         echo "<th>Price in SEK</th>";
         echo "<th>Price with VAT</th>";
+        echo "<th>VAT</th>";
         echo "<th></th>";
         foreach ($items as $item) {
             echo "<tr>";
@@ -24,7 +25,8 @@ class ItemView
             echo "<td>{$item['username']}</td>";
             echo "<td>{$item['date_added']}</td>";
             echo "<td>{$item['price']}</td>";
-            echo "<td>{$item['TotalTax']}</td>";
+            echo "<td>{$item['TotalWithTax']}</td>";
+            echo "<td>{$item['TotTax']}</td>";
             echo "<td class='centerData'><button class='btnGreen'><a href='item-sell.php?id={$item['id']}'>Sell This Item</a></button>";
             echo "<button class='btnEdit'><a href='item-edit.php?id={$item['id']}'>Edit</a></button>";
             echo "<button class='btnDel'><a href='item-delete.php?id={$item['id']}'>Delete</a></button></td>";
@@ -43,7 +45,8 @@ class ItemView
         echo "<th>Sold by</th>";
         echo "<th>Date sold</th>";
         echo "<th>Price in SEK</th>";
-        echo "<th>Price with VAT</th>";
+        echo "<th>Price VAT</th>";
+        echo "<th>Total VAT</th>";
         echo "<th>Total user 60%</th>";
         echo "<th>Total company 40%</th>";
         foreach ($items as $item) {
@@ -55,6 +58,7 @@ class ItemView
             echo "<td>{$item['date_sold']}</td>";
             echo "<td>{$item['price']}</td>";
             echo "<td>{$item['TotalWithTax']}</td>";
+            echo "<td>{$item['TotTax']}</td>";
             echo "<td>{$item['toUser']}</td>";
             echo "<td>{$item['toCompany']}</td>";
             echo "</tr>";
@@ -78,7 +82,7 @@ class ItemView
     public function renderDeleteItemForm($item)
     {
         echo "<h2>Remove item</h2>";
-        echo "<p>Do you wish to remove {$item[0]['title']} with ID: {$item[0]['id']}?</p>";
+        echo "<p>Do you wish to remove {$item[0]['title']}?</p>";
         echo "<form class='centerForm' action='form-handlers/item-remove-form-handler.php' method='post'>";
         echo "<input type='hidden' value='{$item[0]['id']}' name='id'><br>";
         echo "<button type='submit'>Delete item</button>";
@@ -91,9 +95,9 @@ class ItemView
         echo "<form class='centerForm' action='form-handlers/item-sell-form-handler.php' method='post'>";
         echo "<br>";
         echo "<input type='hidden' value='{$item[0]['id']}' name='id'><br>";
-        echo "<label for='{$item[0]['date_sold']}'>Sell on date<br></label><input type='date' name='date_sold' value=";
+        echo "<label for='{$item[0]['date_sold']}'>Choose date of sale<br></label><input type='date' name='date_sold' value=";
         echo date('Y-m-d');
-        echo "><br>";
+        echo "><br><br>";
         echo "<button type='submit'>Sell Item</button>";
         echo "</form>";
     }

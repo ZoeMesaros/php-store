@@ -22,6 +22,7 @@ $dataView->renderTotForSale($dataModel->getTotForSale());
 $dataView->renderTotSales($dataModel->getTotAmountOfSales());
 $dataView->renderTotUsers($dataModel->getTotAmountOfUsers());
 $dataView->renderTotBrands($dataModel->getTotAmountOfBrands());
+$dataView->renderMostExp($dataModel->getMostExpensiveSold());
 $dataView->renderSalesData($dataModel->getSalesData());
 
 include 'partials/footer.php';
