@@ -16,8 +16,12 @@ $dataView = new MetaDataView();
 include 'partials/header.php';
 include 'partials/nav.php';
 
+echo "<h2>Store statistics</h2><br>";
+
 $dataView->renderTotForSale($dataModel->getTotForSale());
 $dataView->renderTotSales($dataModel->getTotAmountOfSales());
+$dataView->renderTotUsers($dataModel->getTotAmountOfUsers());
+$dataView->renderTotBrands($dataModel->getTotAmountOfBrands());
 $dataView->renderSalesData($dataModel->getSalesData());
 
 include 'partials/footer.php';

@@ -18,6 +18,22 @@ class MetaDataModel extends DB
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getTotAmountOfUsers()
+    {
+        $sql = "SELECT COUNT(*) AS TotUsers FROM {$this->tableUsers}";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getTotAmountOfBrands()
+    {
+        $sql = "SELECT COUNT(*) AS TotBrands FROM {$this->tableBrands}";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getTotForSale()
     {
         $sql = "SELECT COUNT(*) AS TotForSale FROM {$this->tableItems} AS i WHERE i.date_sold IS NULL";

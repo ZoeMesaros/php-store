@@ -7,7 +7,7 @@ class BrandView
         echo "<h3 class='pageTitle'>All brands</h3>";
         echo "<button class='addButton'><a href='brand-new.php'>Add new brand</a></button>";
         echo "<br><br>";
-        echo "<table class='center'>";
+        echo "<table class='brandsTable'>";
         echo "<th>ID</th>";
         echo "<th>Name</th>";
         echo "<th></th>";

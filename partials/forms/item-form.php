@@ -7,7 +7,7 @@ $userModel = new UserModel(connect($host, $db, $user, $password));
 $brandModel = new BrandModel(connect($host, $db, $user, $password));
 ?>
 <br>
-<h2>Add new item</h2>
+<h2>Add new item</h2><br>
 <form action="form-handlers/item-form-handler.php" method="post">
     <label for="title">Item name<br> </label><input type="text" name="title" id="title"><br>
     <label for="color">Color<br></label><input type="text" name="color" id="color"><br><br>

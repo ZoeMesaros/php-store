@@ -40,7 +40,7 @@ li {
 }
 
 h2 {
-  margin-top: 3%;
+  margin-top: 2%;
 }
 
 .formCenter {
@@ -48,22 +48,64 @@ h2 {
   display: inline-block;
 }
 
-.center {
+.brandsTable {
   margin-left: auto;
   margin-right: auto;
-}
-
-.center {
   background-color: rgb(231, 231, 231);
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 82%;
+  width: 30%;
+}
+
+.brandsTable td,
+.brandsTable th {
+  border: 1px solid #ddd;
+  padding: 3px;
+}
+
+.brandsTable tr:nth-child(even) {
+  background-color: #f8f8f8e9;
+}
+
+.brandsTable tr:hover {
+  background-color: rgb(198, 198, 198);
+}
+
+.brandsTable tr,
+td {
+  text-align: center;
+}
+
+.brandsTable th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: normal;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #c77b71ff;
+  color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 600px) {
+  .center {
+    width: 40%;
+  }
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(231, 231, 231);
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
 }
 
 .center td,
 .center th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 7px;
 }
 
 .center tr:nth-child(even) {
@@ -76,12 +118,12 @@ h2 {
 
 .center tr,
 td {
-  text-align: left;
+  text-align: center;
 }
 
 .center th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   text-align: center;
   font-size: 15px;
   font-weight: normal;
@@ -92,6 +134,47 @@ td {
 
 .hidden {
   display: none;
+}
+
+.tablemeta {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(231, 231, 231);
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 20%;
+}
+
+.tablemeta td,
+.tablemeta th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.tablemeta tr:nth-child(even) {
+  background-color: #f8f8f8e9;
+}
+
+.tablemeta tr:hover {
+  background-color: rgb(198, 198, 198);
+}
+
+.tablemeta tr,
+.tablemeta td {
+  text-align: left;
+  width: 35%;
+}
+
+.tablemeta th {
+  padding-top: 12px;
+  width: 28%;
+  padding-bottom: 12px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: normal;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #c77b71ff;
+  color: rgb(255, 255, 255);
 }
 
 .btnDel {

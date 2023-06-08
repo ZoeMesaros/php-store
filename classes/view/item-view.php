@@ -18,14 +18,14 @@ class ItemView
         echo "<th></th>";
         foreach ($items as $item) {
             echo "<tr>";
-            echo "<td>{$item['title']}</td>";
+            echo "<td class='centerData'>{$item['title']}</td>";
             echo "<td>{$item['color']}</td>";
             echo "<td>{$item['name']}</td>";
             echo "<td>{$item['username']}</td>";
             echo "<td>{$item['date_added']}</td>";
             echo "<td>{$item['price']}</td>";
             echo "<td>{$item['TotalTax']}</td>";
-            echo "<td><button class='btnGreen'><a href='item-sell.php?id={$item['id']}'>Sell This Item</a></button>";
+            echo "<td class='centerData'><button class='btnGreen'><a href='item-sell.php?id={$item['id']}'>Sell This Item</a></button>";
             echo "<button class='btnEdit'><a href='item-edit.php?id={$item['id']}'>Edit</a></button>";
             echo "<button class='btnDel'><a href='item-delete.php?id={$item['id']}'>Delete</a></button></td>";
             echo "</tr>";
