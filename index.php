@@ -1,15 +1,15 @@
 <?php
 
-require 'classes/view/meta-data-view.php';
+require 'classes/view/home-view.php';
 
 require 'classes/model/db.php';
-require 'classes/model/meta-data-model.php';
+require 'classes/model/home-model.php';
 
 $pdo = require 'partials/connect.php';
 
 $db = new DB($pdo);
-$dataModel = new MetaDataModel($pdo);
-$dataView = new MetaDataView();
+$homeModel = new HomeModel($pdo);
+$homeView = new HomeView();
 
 
 
@@ -18,11 +18,11 @@ include 'partials/nav.php';
 
 echo "<h2>Store statistics</h2><br>";
 
-$dataView->renderTotForSale($dataModel->getTotForSale());
-$dataView->renderTotSales($dataModel->getTotAmountOfSales());
-$dataView->renderTotUsers($dataModel->getTotAmountOfUsers());
-$dataView->renderTotBrands($dataModel->getTotAmountOfBrands());
-$dataView->renderMostExp($dataModel->getMostExpensiveSold());
-$dataView->renderSalesData($dataModel->getSalesData());
+$homeView->renderTotForSale($homeModel->getTotForSale());
+$homeView->renderTotSales($homeModel->getTotAmountOfSales());
+$homeView->renderTotUsers($homeModel->getTotAmountOfUsers());
+$homeView->renderTotBrands($homeModel->getTotAmountOfBrands());
+$homeView->renderMostExp($homeModel->getMostExpensiveSold());
+$homeView->renderSalesData($homeModel->getSalesData());
 
 include 'partials/footer.php';

@@ -1,6 +1,6 @@
 <?php
 
-class MetaDataView
+class HomeView
 {
 
     public function renderTotForSale($data)
