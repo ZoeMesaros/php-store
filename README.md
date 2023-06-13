@@ -2,8 +2,6 @@
 
 An assignment in PHP to create a second-hand store management page using a database.
 
-The database consists of three tables, sellers, brands and items.
-
 ### Sellers
 
 | id  | username    | first_name  | last_name   | email       |
