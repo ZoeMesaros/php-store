@@ -40,6 +40,7 @@ li {
 }
 
 h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-top: 2%;
 }
 
@@ -307,4 +308,35 @@ td {
 .addButton:hover {
   background-color: rgba(227, 167, 159, 0.777);
   color: rgb(4, 4, 4);
+}
+
+.errMsg {
+  margin-top: 15%;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.errBtn {
+  padding: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+#page-container {
+  position: relative;
+  min-height: 98vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;
+}
+
+#footer {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  height: 2.5rem;
 }

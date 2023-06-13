@@ -8,7 +8,5 @@
     <link rel="stylesheet" href="style/style.css">
     <title>The Vintage Dress &#128087;</title>
 </head>
-<div id="page-container">
-    <div id="content-wrap">
 
-        <body>
+<body class='errMsg'>

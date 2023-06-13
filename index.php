@@ -16,8 +16,6 @@ $homeView = new HomeView();
 include 'partials/header.php';
 include 'partials/nav.php';
 
-echo "<h2>Store statistics</h2><br>";
-
 $homeView->renderTotForSale($homeModel->getTotForSale());
 $homeView->renderTotSales($homeModel->getTotAmountOfSales());
 $homeView->renderTotUsers($homeModel->getTotAmountOfUsers());

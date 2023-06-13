@@ -5,6 +5,7 @@ class HomeView
 
     public function renderTotForSale($data)
     {
+        echo "<h2>Store statistics</h2><br>";
         echo "<table class='tablemeta'>";
         echo "<tr>";
         echo "<th>Items for sale</th>";
