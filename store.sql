@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 13 jun 2023 kl 17:25
+-- Tid vid skapande: 13 jun 2023 kl 17:27
 -- Serverversion: 10.4.28-MariaDB
 -- PHP-version: 8.2.4
 
@@ -115,8 +115,8 @@ ALTER TABLE `brands`
 --
 ALTER TABLE `items`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `brandID` (`brandID`),
-  ADD KEY `fk_user` (`sellerID`);
+  ADD KEY `fk_seller` (`sellerID`),
+  ADD KEY `fk_brand` (`brandID`);
 
 --
 -- Index för tabell `sellers`
@@ -154,8 +154,8 @@ ALTER TABLE `sellers`
 -- Restriktioner för tabell `items`
 --
 ALTER TABLE `items`
-  ADD CONSTRAINT `fk_user` FOREIGN KEY (`sellerID`) REFERENCES `sellers` (`ID`),
-  ADD CONSTRAINT `items_ibfk_1` FOREIGN KEY (`brandID`) REFERENCES `brands` (`id`);
+  ADD CONSTRAINT `fk_brand` FOREIGN KEY (`brandID`) REFERENCES `brands` (`id`),
+  ADD CONSTRAINT `fk_seller` FOREIGN KEY (`sellerID`) REFERENCES `sellers` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
