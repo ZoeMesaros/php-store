@@ -2,7 +2,25 @@
 
 An assignment in PHP to create a second-hand store management page using a database.
 
-The store is calculated to take 40% of the profits.
+The database consists of three tables, sellers, brands and items.
+
+### Sellers
+
+| id  | username    | first_name  | last_name   | email       |
+| --- | ----------- | ----------- | ----------- | ----------- |
+| int | varchar(32) | varchar(32) | varchar(32) | varchar(32) |
+
+### Brands
+
+| id  | name        |
+| --- | ----------- |
+| int | varchar(32) |
+
+### Items
+
+| id  | title       | color       | brand_id &#128273; | seller_id &#128273; | price | date_added | date_sold |
+| --- | ----------- | ----------- | ------------------ | ------------------- | ----- | ---------- | --------- |
+| int | varchar(50) | varchar(11) | int                | int                 | int   | date       | date      |
 
 ## Usage
 
@@ -35,7 +53,3 @@ Brands Page
 
 - Shows all brands and lets you add new brands.
 - You can edit or delete existing brands in the list.
-
-The project is created following an MVC pattern.
-
-The database consists of
