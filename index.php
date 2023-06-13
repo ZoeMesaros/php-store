@@ -11,14 +11,12 @@ $db = new DB($pdo);
 $homeModel = new HomeModel($pdo);
 $homeView = new HomeView();
 
-
-
 include 'partials/header.php';
 include 'partials/nav.php';
 
 $homeView->renderTotForSale($homeModel->getTotForSale());
 $homeView->renderTotSales($homeModel->getTotAmountOfSales());
-$homeView->renderTotUsers($homeModel->getTotAmountOfUsers());
+$homeView->renderTotSellers($homeModel->getTotAmountOfSellers());
 $homeView->renderTotBrands($homeModel->getTotAmountOfBrands());
 $homeView->renderMostExp($homeModel->getMostExpensiveSold());
 $homeView->renderSalesData($homeModel->getSalesData());

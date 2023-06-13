@@ -1,22 +1,22 @@
 <?php
 
-class UserController
+class SellerController
 {
     private $model = null;
     private $view = null;
 
-    public function __construct($userModel, $userView)
+    public function __construct($sellerModel, $sellerView)
     {
-        $this->model = $userModel;
-        $this->view = $userView;
+        $this->model = $sellerModel;
+        $this->view = $sellerView;
     }
 
     public function edit()
     {
         if (isset($_GET['id'])) {
             $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-            $one = $this->model->getUser($id);
-            $this->view->renderEditUserForm($one);
+            $one = $this->model->getSeller($id);
+            $this->view->renderEditSellerForm($one);
 
         }
     }
@@ -25,8 +25,8 @@ class UserController
     {
         if (isset($_GET['id'])) {
             $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-            $one = $this->model->getUser($id);
-            $this->view->renderDeleteUserForm($one);
+            $one = $this->model->getSeller($id);
+            $this->view->renderDeleteSellerForm($one);
 
         }
     }
@@ -35,8 +35,8 @@ class UserController
     {
         if (isset($_GET['id'])) {
             $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-            $one = $this->model->getUser($id);
-            $this->view->renderUserDetail($one);
+            $one = $this->model->getSeller($id);
+            $this->view->renderSellerDetail($one);
 
         }
     }
@@ -45,8 +45,8 @@ class UserController
     {
         if (isset($_GET['id'])) {
             $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-            $one = $this->model->getUserItemsForSale($id);
-            $this->view->renderUserItemsForSale($one);
+            $one = $this->model->getSellerItemsForSale($id);
+            $this->view->renderSellerItemsForSale($one);
 
         }
     }
@@ -55,8 +55,8 @@ class UserController
     {
         if (isset($_GET['id'])) {
             $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-            $one = $this->model->getUserItemsSold($id);
-            $this->view->renderUserItemsSold($one);
+            $one = $this->model->getSellerItemsSold($id);
+            $this->view->renderSellerItemsSold($one);
 
         }
     }
@@ -65,8 +65,8 @@ class UserController
     {
         if (isset($_GET['id'])) {
             $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-            $one = $this->model->getUserAllItems($id);
-            $this->view->renderUserAllitems($one);
+            $one = $this->model->getSellerAllItems($id);
+            $this->view->renderSellerAllitems($one);
 
         }
     }
@@ -75,7 +75,7 @@ class UserController
     {
         if (isset($_GET['id'])) {
             $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-            $one = $this->model->getUserSoldFor($id);
+            $one = $this->model->getSellerSoldFor($id);
             $this->view->renderTotalSoldFor($one);
 
         }

@@ -1,7 +1,7 @@
 <?php
 
-require '../classes/model/user-model.php';
-$userModel = new UserModel(require '../partials/connect.php');
+require '../classes/model/seller-model.php';
+$sellerModel = new SellerModel(require '../partials/connect.php');
 
 if (isset($_POST['username'], $_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['id'])) {
     $username = filter_var($_POST['username'], FILTER_SANITIZE_SPECIAL_CHARS);
@@ -9,7 +9,7 @@ if (isset($_POST['username'], $_POST['first_name'], $_POST['last_name'], $_POST[
     $lastname = filter_var($_POST['last_name'], FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_SPECIAL_CHARS);
     $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
-    $userModel->editUser($username, $firstname, $lastname, $email, $id);
+    $sellerModel->editSeller($username, $firstname, $lastname, $email, $id);
 
-    header("Location: ../users.php");
+    header("Location: ../sellers.php");
 }

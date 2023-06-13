@@ -2,7 +2,7 @@
 
 class ItemView
 {
-    public function renderAllItemsWithUsersAndBrandsAsList(array $items): void
+    public function renderAllItemsWithSellersAndBrandsAsList(array $items): void
     {
         echo "<h3 class='pageTitle'>All dresses up for sale</h3>";
         echo "<button class='addButton'><a href='item-new.php'>Add new item</a></button>";
@@ -11,7 +11,7 @@ class ItemView
         echo "<th>Name</th>";
         echo "<th>Color</th>";
         echo "<th>Brand</th>";
-        echo "<th>Sold By</th>";
+        echo "<th>Sold by</th>";
         echo "<th>Date added</th>";
         echo "<th>Price in SEK</th>";
         echo "<th>Price with VAT</th>";
@@ -35,7 +35,7 @@ class ItemView
         echo "</table>";
     }
 
-    public function renderAllISoldItemsWithUsersAndBrandsAsList(array $items): void
+    public function renderAllISoldItemsWithSellersAndBrandsAsList(array $items): void
     {
         echo "<h3 class='pageTitle'>Sold dresses</h3>";
         echo "<table class='center'>";
@@ -43,11 +43,12 @@ class ItemView
         echo "<th>Color</th>";
         echo "<th>Brand</th>";
         echo "<th>Sold by</th>";
+        echo "<th>Date added</th>";
         echo "<th>Date sold</th>";
         echo "<th>Price in SEK</th>";
         echo "<th>Price VAT</th>";
         echo "<th>Total VAT</th>";
-        echo "<th>Total user 60%</th>";
+        echo "<th>Total seller 60%</th>";
         echo "<th>Total company 40%</th>";
         foreach ($items as $item) {
             echo "<tr>";
@@ -55,11 +56,12 @@ class ItemView
             echo "<td>{$item['color']}</td>";
             echo "<td>{$item['name']}</td>";
             echo "<td>{$item['username']}</td>";
+            echo "<td>{$item['date_added']}</td>";
             echo "<td>{$item['date_sold']}</td>";
             echo "<td>{$item['price']}</td>";
             echo "<td>{$item['TotalWithTax']}</td>";
             echo "<td>{$item['TotTax']}</td>";
-            echo "<td>{$item['toUser']}</td>";
+            echo "<td>{$item['toSeller']}</td>";
             echo "<td>{$item['toCompany']}</td>";
             echo "</tr>";
         }
@@ -74,7 +76,7 @@ class ItemView
         echo "<input type='hidden' value='{$item[0]['id']}' name='id'><br>";
         echo "<label for='{$item[0]['title']}'>Brand Name<br></label><input type='text' value='{$item[0]['title']}' name='title' ><br>";
         echo "<label for='{$item[0]['color']}'>Color<br></label><input type='text' value='{$item[0]['color']}' name='color' ><br>";
-        echo "<label for='{$item[0]['price']}'>Price<br></label><input type='text' value='{$item[0]['price']}' name='price' ><br>";
+        echo "<label for='{$item[0]['price']}'>Price<br></label><input type='text' value='{$item[0]['price']}' name='price' ><br><br>";
         echo "<button type='submit'>Edit item</button>";
         echo "</form>";
     }

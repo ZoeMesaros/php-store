@@ -24,12 +24,12 @@ class HomeView
         echo "</table>";
     }
 
-    public function renderTotUsers($data)
+    public function renderTotSellers($data)
     {
         echo "<table class='tablemeta'>";
         echo "<tr>";
-        echo "<th>Users</th>";
-        echo "<td>{$data[0]['TotUsers']}</td>";
+        echo "<th>Sellers</th>";
+        echo "<td>{$data[0]['TotSellers']}</td>";
         echo "</tr>";
         echo "</table>";
     }
@@ -53,7 +53,7 @@ class HomeView
         echo "<td>{$data[0]['TotBefTax']} SEK</td>";
         echo "</tr>";
         echo "<tr>";
-        echo "<th>Total With VAT</th>";
+        echo "<th>Total with VAT</th>";
         echo "<td>{$data[0]['TotAfTax']} SEK</td>";
         echo "</tr>";
         echo "<tr>";
@@ -62,8 +62,8 @@ class HomeView
         echo "<td>{$data[0]['TotTax']} SEK</td>";
         echo "</tr>";
         echo "<tr>";
-        echo "<th>Total to users</th>";
-        echo "<td>{$data[0]['TotUser']} SEK</td>";
+        echo "<th>Total to sellers</th>";
+        echo "<td>{$data[0]['TotSeller']} SEK</td>";
         echo "</tr>";
         echo "<tr>";
         echo "<th>Total to company</th>";
@@ -79,7 +79,7 @@ class HomeView
         echo "<h2>Most expensive item sold</h2>";
         echo "<th>Item</th>";
         echo "<th>Brand</th>";
-        echo "<th>By user</th>";
+        echo "<th>By seller</th>";
         echo "<th>Date</th>";
         echo "<th>Total with tax</th>";
         echo "<tr>";

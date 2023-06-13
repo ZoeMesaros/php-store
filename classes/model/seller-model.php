@@ -2,17 +2,17 @@
 
 require_once 'db.php';
 
-class UserModel extends DB
+class SellerModel extends DB
 {
 
-    protected $table = "users";
+    protected $table = "sellers";
 
-    public function getAllUsers()
+    public function getAllSellers()
     {
         return $this->getAll($this->table);
     }
 
-    public function getAllUsersOrderByFirstname()
+    public function getAllSellersOrderByFirstname()
     {
         $query = "SELECT * FROM {$this->table} ORDER BY first_name";
         $stmt = $this->pdo->prepare($query);
@@ -20,7 +20,7 @@ class UserModel extends DB
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getUser(int $id)
+    public function getSeller(int $id)
     {
         $sql = "SELECT * FROM {$this->table} WHERE id= ?";
         $statement = $this->pdo->prepare($sql);
@@ -28,54 +28,54 @@ class UserModel extends DB
         return $statement->fetchAll();
     }
 
-    public function addUser(string $username, string $firstname, string $lastname, string $email)
+    public function addSeller(string $username, string $firstname, string $lastname, string $email)
     {
         $sql = "INSERT INTO {$this->table} (username,first_name, last_name, email) VALUES (?,?,?,?)";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$username, $firstname, $lastname, $email]);
     }
 
-    public function editUser(string $username, string $firstname, string $lastname, string $email, int $id)
+    public function editSeller(string $username, string $firstname, string $lastname, string $email, int $id)
     {
         $sql = "UPDATE {$this->table} SET username = ?, first_name = ?, last_name = ?, email = ? WHERE id = ?";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$username, $firstname, $lastname, $email, $id]);
     }
 
-    public function removeUser(int $id)
+    public function removeSeller(int $id)
     {
         $sql = "DELETE FROM {$this->table} WHERE id = ?";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$id]);
     }
 
-    public function getUserItemsForSale(int $id)
+    public function getSellerItemsForSale(int $id)
     {
-        $sql = "SELECT u.username, u.id, COUNT(u.id) AS 'Dresses for sale' FROM {$this->table} AS u JOIN items AS i ON u.id = i.userID WHERE u.id LIKE ? AND i.date_sold IS NULL GROUP BY u.id";
+        $sql = "SELECT s.username, s.id, COUNT(s.id) AS 'Dresses for sale' FROM {$this->table} AS s JOIN items AS i ON s.id = i.sellerID WHERE s.id LIKE ? AND i.date_sold IS NULL GROUP BY s.id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$id]);
         return $statement->fetchAll();
     }
 
-    public function getUserItemsSold(int $id)
+    public function getSellerItemsSold(int $id)
     {
-        $sql = "SELECT u.username, u.id, COUNT(u.id) AS 'Dresses sold' FROM {$this->table} AS u JOIN items AS i ON u.id = i.userID WHERE u.id LIKE ? AND i.date_sold IS NOT NULL GROUP BY u.id";
+        $sql = "SELECT s.username, s.id, COUNT(s.id) AS 'Dresses sold' FROM {$this->table} AS s JOIN items AS i ON s.id = i.sellerID WHERE s.id LIKE ? AND i.date_sold IS NOT NULL GROUP BY s.id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$id]);
         return $statement->fetchAll();
     }
 
-    public function getUserAllItems(int $id)
+    public function getSellerAllItems(int $id)
     {
-        $sql = "SELECT items.title, items.color, items.price, items.date_added, items.date_sold, SUM(items.price * 1.25) AS TotalWithTax, users.username, users.first_name, users.last_name, brands.name FROM `items` JOIN `users` ON users.id = items.userID JOIN `brands` ON brands.id = items.brandID WHERE users.id = ? GROUP BY items.id";
+        $sql = "SELECT items.title, items.color, items.price, items.date_added, items.date_sold, SUM(items.price * 1.25) AS TotalWithTax, sellers.username, sellers.first_name, sellers.last_name, brands.name FROM `items` JOIN `sellers` ON sellers.id = items.sellerID JOIN `brands` ON brands.id = items.brandID WHERE sellers.id = ? GROUP BY items.id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$id]);
         return $statement->fetchAll();
     }
 
-    public function getUserSoldFor(int $id)
+    public function getSellerSoldFor(int $id)
     {
-        $sql = "SELECT u.username, u.id, SUM((i.price * 1.25)*(1 - 0.4)) AS toUser FROM {$this->table} AS u JOIN items AS i ON u.id = i.userID WHERE u.id LIKE ? AND i.date_sold IS NOT NULL GROUP BY i.id";
+        $sql = "SELECT s.username, s.id, SUM((i.price * 1.25)*(1 - 0.4)) AS toSeller FROM {$this->table} AS s JOIN items AS i ON s.id = i.sellerID WHERE s.id LIKE ? AND i.date_sold IS NOT NULL GROUP BY i.id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$id]);
         return $statement->fetchAll();

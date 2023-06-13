@@ -1,9 +1,9 @@
 <?php
 require_once 'classes/model/item-model.php';
-require_once 'classes/model/user-model.php';
+require_once 'classes/model/seller-model.php';
 require_once 'classes/model/brand-model.php';
 $itemModel = new ItemModel(connect($host, $db, $user, $password));
-$userModel = new UserModel(connect($host, $db, $user, $password));
+$sellerModel = new SellerModel(connect($host, $db, $user, $password));
 $brandModel = new BrandModel(connect($host, $db, $user, $password));
 ?>
 <br>
@@ -23,18 +23,18 @@ $brandModel = new BrandModel(connect($host, $db, $user, $password));
         ?>
     </select><br>
     <p><a href="">or add new</a></p>
-    <select name="userID" id="userID">
-        <option value="">Select user</option>
+    <select name="sellerID" id="sellerID">
+        <option value="">Select seller</option>
         <?php
-        $users = $userModel->getAllUsers();
-        foreach ($users as $user) {
-            echo "<option value='{$user['id']}'>
-                    {$user['username']}
+        $sellers = $sellerModel->getAllSellers();
+        foreach ($sellers as $seller) {
+            echo "<option value='{$seller['id']}'>
+                    {$seller['username']}
                 </option>";
         }
         ?>
     </select><br>
-    <p><a href="user-new.php">or add new</a></p>
+    <p><a href="seller-new.php">or add new</a></p>
     <label for="price">Price in SEK<br>
     </label><input type="number" id="price" name="price"><br>
     <p>Tax is added automatically (25%)</p>
