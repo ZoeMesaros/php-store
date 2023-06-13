@@ -9,7 +9,6 @@ class SellerView
         echo "<button class='addButton'><a href='seller-new.php'>Add new seller</a></button>";
         echo "<br><br>";
         echo "<table class='center'>";
-        echo "<th>ID</th>";
         echo "<th>Username</th>";
         echo "<th>Name</th>";
         echo "<th>Last name</th>";
@@ -17,7 +16,6 @@ class SellerView
         echo "<th></th>";
         foreach ($sellers as $seller) {
             echo "<tr>";
-            echo "<td>{$seller['id']}</td>";
             echo "<td>{$seller['username']}</td>";
             echo "<td>{$seller['first_name']}</td>";
             echo "<td>{$seller['last_name']}</td>";

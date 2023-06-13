@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 06 jun 2023 kl 13:09
+-- Tid vid skapande: 13 jun 2023 kl 17:25
 -- Serverversion: 10.4.28-MariaDB
 -- PHP-version: 8.2.4
 
@@ -38,11 +38,11 @@ CREATE TABLE `brands` (
 
 INSERT INTO `brands` (`id`, `name`) VALUES
 (1, 'Hell Bunny'),
-(2, 'Weekend doll'),
-(3, 'Vivien of holloway'),
-(4, 'Top Vintage'),
-(5, 'Unique Vintage'),
-(6, 'Voodoo Vixen');
+(2, 'Hearts & Roses'),
+(3, 'Top Vintage'),
+(4, 'Unique Vintage'),
+(5, 'Voodoo Vixen'),
+(6, 'Vivien Of Holloway');
 
 -- --------------------------------------------------------
 
@@ -55,7 +55,7 @@ CREATE TABLE `items` (
   `title` varchar(50) NOT NULL,
   `color` varchar(11) NOT NULL,
   `brandID` int(11) NOT NULL,
-  `userID` int(11) NOT NULL,
+  `sellerID` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `date_added` date DEFAULT NULL,
   `date_sold` date DEFAULT NULL
@@ -65,36 +65,40 @@ CREATE TABLE `items` (
 -- Dumpning av Data i tabell `items`
 --
 
-INSERT INTO `items` (`id`, `title`, `color`, `brandID`, `userID`, `price`, `date_added`, `date_sold`) VALUES
-(1, 'Midori Dress', 'Mint green', 1, 1, 1000, '2023-05-28', NULL),
-(2, 'Bettie Polkadot Swing Dress', 'Red', 4, 2, 500, '2023-05-17', '2023-05-31'),
-(3, 'Grace Pink Rose', 'White', 3, 1, 1000, '2023-05-11', '2023-05-13'),
-(4, 'Floral Dress', 'Purple', 3, 2, 340, '2023-05-28', NULL),
-(5, 'Kitty Dress', 'Yellow', 3, 3, 500, '2023-06-05', '2023-06-05'),
-(6, 'Jinkx Floral Tropical Dress', 'Green', 6, 1, 350, '2023-06-05', NULL);
+INSERT INTO `items` (`id`, `title`, `color`, `brandID`, `sellerID`, `price`, `date_added`, `date_sold`) VALUES
+(1, 'Floral Dress', 'Pink', 6, 2, 850, '2023-06-13', NULL),
+(2, 'Grace Pink Rose Dress', 'White', 2, 3, 500, '2023-06-09', NULL),
+(3, 'Midori Dress', 'Mint', 1, 4, 300, '2023-06-08', '2023-06-11'),
+(4, 'Cupid Heart Button Dress', 'Pink', 5, 3, 380, '2023-06-04', NULL),
+(5, 'Bettie Polkadot Swing Dress', 'Red', 3, 2, 380, '2023-04-13', '2023-05-10'),
+(6, 'Black and White Polka Dot Swing Dress', 'White', 2, 2, 450, '2023-03-16', '2023-04-04'),
+(7, 'Lana Dress', 'Aqua', 6, 1, 550, '2023-05-17', '2023-05-19'),
+(8, 'Day Dress', 'Black', 2, 3, 380, '2023-04-12', NULL),
+(9, 'Layla Floral Swing Dress', 'White', 2, 1, 430, '2023-03-12', '2023-04-04');
 
 -- --------------------------------------------------------
 
 --
--- Tabellstruktur `users`
+-- Tabellstruktur `sellers`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `sellers` (
   `id` int(11) NOT NULL,
   `username` varchar(32) NOT NULL,
   `first_name` varchar(32) NOT NULL,
   `last_name` varchar(32) NOT NULL,
-  `email` varchar(65) NOT NULL
+  `email` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumpning av Data i tabell `users`
+-- Dumpning av Data i tabell `sellers`
 --
 
-INSERT INTO `users` (`id`, `username`, `first_name`, `last_name`, `email`) VALUES
-(1, 'DressLover', 'Anna', 'Svensson', 'anna.s@gmail.com'),
-(2, 'Dressy', 'Bellaa', 'Andersson', 'b.a@hotmail.com'),
-(3, 'RetroDress', 'Elsa', 'Svensson', 'elsa@gmail.com');
+INSERT INTO `sellers` (`id`, `username`, `first_name`, `last_name`, `email`) VALUES
+(1, 'Dressy', 'Anna', 'Andersson', 'anna.a@gmail.com'),
+(2, 'DressLover', 'Lisa', 'Nilsson', 'lisa@gmail.com'),
+(3, 'Cute_dress', 'Stina', 'Stensson', 'stina@gmail.com'),
+(4, 'RetroVintage', 'Amanda', 'Larsson', 'amanda@gmail.com');
 
 --
 -- Index för dumpade tabeller
@@ -112,12 +116,12 @@ ALTER TABLE `brands`
 ALTER TABLE `items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `brandID` (`brandID`),
-  ADD KEY `fk_user` (`userID`);
+  ADD KEY `fk_user` (`sellerID`);
 
 --
--- Index för tabell `users`
+-- Index för tabell `sellers`
 --
-ALTER TABLE `users`
+ALTER TABLE `sellers`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -128,19 +132,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT för tabell `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT för tabell `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT för tabell `users`
+-- AUTO_INCREMENT för tabell `sellers`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `sellers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restriktioner för dumpade tabeller
@@ -150,7 +154,7 @@ ALTER TABLE `users`
 -- Restriktioner för tabell `items`
 --
 ALTER TABLE `items`
-  ADD CONSTRAINT `fk_user` FOREIGN KEY (`userID`) REFERENCES `users` (`ID`),
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`sellerID`) REFERENCES `sellers` (`ID`),
   ADD CONSTRAINT `items_ibfk_1` FOREIGN KEY (`brandID`) REFERENCES `brands` (`id`);
 COMMIT;
 

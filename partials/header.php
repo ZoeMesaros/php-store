@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
-    <title>The Vintage Dress &#128087;</title>
+    <link rel="icon" href="img/dress.png">
+    <title>The Vintage Dress</title>
 </head>
 <div id="page-container">
     <div id="content-wrap">

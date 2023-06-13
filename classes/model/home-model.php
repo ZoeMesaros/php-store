@@ -51,7 +51,7 @@ class HomeModel extends DB
 
     public function getMostExpensiveSold()
     {
-        $sql = "SELECT items.title, items.color, items.date_sold, items.price, sellers.username, brands.name, SUM(items.price * 1.25) AS TotalWithTax from {$this->tItems} JOIN {$this->tSellers} ON sellers.id = items.sellerID JOIN {$this->tBrands} ON brands.id = items.brandID WHERE date_sold IS NOT NULL ORDER BY items.price ASC LIMIT 1";
+        $sql = "SELECT items.title, items.color, items.date_added, items.date_sold, items.price, sellers.username, brands.name, SUM(items.price * 1.25) AS TotalWithTax, SUM((items.price * 1.25) - (items.price)) AS TotTax, SUM((items.price * 1.25)*(1 - 0.4)) AS toSeller, SUM((items.price * 1.25)*(1 - 0.6)) AS toCompany from items JOIN sellers ON sellers.id = items.sellerID JOIN brands ON brands.id = items.brandID WHERE date_sold IS NOT NULL GROUP BY items.id ORDER BY items.price DESC LIMIT 1";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);

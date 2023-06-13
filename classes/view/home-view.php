@@ -80,7 +80,7 @@ class HomeView
         echo "<th>Item</th>";
         echo "<th>Brand</th>";
         echo "<th>By seller</th>";
-        echo "<th>Date</th>";
+        echo "<th>Date sold</th>";
         echo "<th>Total with tax</th>";
         echo "<tr>";
         echo "<td>{$data[0]['title']}</td>";
