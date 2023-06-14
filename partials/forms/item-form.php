@@ -22,7 +22,7 @@ $brandModel = new BrandModel(connect($host, $db, $user, $password));
         }
         ?>
     </select><br>
-    <p><a href="">or add new</a></p>
+    <p><a href="brand-new.php">or add new</a></p>
     <select name="sellerID" id="sellerID">
         <option value="">Select seller</option>
         <?php
