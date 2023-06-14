@@ -25,6 +25,12 @@ The database constists of these tables:
 | ------- | ----------- | ----------- | ----------- | ----------- | ----------- |
 | int     | varchar(32) | varchar(32) | varchar(32) | varchar(32) | varchar(15) |
 
+### Conditions
+
+| id (PK) | item_condition |
+| ------- | -------------- |
+| int     | varchar(50)    |
+
 ### Brands
 
 | id (PK) | name        |
@@ -33,9 +39,9 @@ The database constists of these tables:
 
 ### Items
 
-| id  | title       | color       | brand_id (FK) &#128273; | seller_id (FK) &#128273; | price | date_added | date_sold |
-| --- | ----------- | ----------- | ----------------------- | ------------------------ | ----- | ---------- | --------- |
-| int | varchar(50) | varchar(11) | int                     | int                      | int   | date       | date      |
+| id  | title       | color       | brandID (FK) &#128273; | sellerID (FK) &#128273; | condID (FK) &#128273; | item_desc    | price | date_added | date_sold |
+| --- | ----------- | ----------- | ---------------------- | ----------------------- | --------------------- | ------------ | ----- | ---------- | --------- |
+| int | varchar(50) | varchar(11) | int                    | int                     | int                   | varchar(250) | int   | date       | date      |
 
 ## Usage
 

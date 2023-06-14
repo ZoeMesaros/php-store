@@ -30,7 +30,7 @@ class ItemModel extends DB
 
     public function getAllItemsWithSellersAndBrandsAndTax()
     {
-        $sql = "SELECT items.id, items.title, items.color, items.date_added, items.price, sellers.username, brands.name, SUM(items.price *  1.25) AS TotalWithTax, SUM((items.price * 1.25) - (items.price)) AS TotTax from {$this->table} JOIN sellers ON sellers.id = items.sellerID JOIN brands ON brands.id = items.brandID WHERE date_sold IS NULL GROUP BY items.id";
+        $sql = "SELECT items.id, items.title, items.color, items.item_desc, items.date_added, items.price, sellers.username, brands.name, conditions.item_condition, SUM(items.price *  1.25) AS TotalWithTax, SUM((items.price * 1.25) - (items.price)) AS TotTax from {$this->table} JOIN sellers ON sellers.id = items.sellerID JOIN brands ON brands.id = items.brandID JOIN conditions ON conditions.id = items.condID WHERE date_sold IS NULL GROUP BY items.id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -43,11 +43,11 @@ class ItemModel extends DB
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function addItem(string $title, string $color, int $brandid, int $sellerid, int $price, string $dateadded)
+    public function addItem(string $title, string $color, int $condid, string $desc, int $brandid, int $sellerid, int $price, string $dateadded)
     {
-        $sql = "INSERT INTO {$this->table} (title,color,brandID,sellerID,price,date_added) VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO {$this->table} (title,color,condID,item_desc,brandID,sellerID,price,date_added) VALUES (?,?,?,?,?,?,?,?)";
         $statement = $this->pdo->prepare($sql);
-        $statement->execute([$title, $color, $brandid, $sellerid, $price, $dateadded]);
+        $statement->execute([$title, $color, $condid, $desc, $brandid, $sellerid, $price, $dateadded]);
     }
 
     public function removeItem(int $id)
@@ -57,11 +57,11 @@ class ItemModel extends DB
         $statement->execute([$id]);
     }
 
-    public function editItem(string $title, string $color, int $price, int $id)
+    public function editItem(string $title, string $color, string $desc, int $price, int $id)
     {
-        $sql = "UPDATE {$this->table} SET title = ?, color = ?, price = ? WHERE id = ?";
+        $sql = "UPDATE {$this->table} SET title = ?, color = ?, item_desc = ?, price = ? WHERE id = ?";
         $statement = $this->pdo->prepare($sql);
-        $statement->execute([$title, $color, $price, $id]);
+        $statement->execute([$title, $color, $desc, $price, $id]);
     }
 
     public function sellItem(string $datesold, int $id)

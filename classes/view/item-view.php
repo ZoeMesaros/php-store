@@ -11,6 +11,8 @@ class ItemView
         echo "<th>Name</th>";
         echo "<th>Color</th>";
         echo "<th>Brand</th>";
+        echo "<th>Condition</th>";
+        echo "<th>Description</th>";
         echo "<th>Sold by</th>";
         echo "<th>Date added</th>";
         echo "<th>Price in SEK</th>";
@@ -22,6 +24,8 @@ class ItemView
             echo "<td class='centerData'>{$item['title']}</td>";
             echo "<td>{$item['color']}</td>";
             echo "<td>{$item['name']}</td>";
+            echo "<td>{$item['item_condition']}</td>";
+            echo "<td>{$item['item_desc']}</td>";
             echo "<td>{$item['username']}</td>";
             echo "<td>{$item['date_added']}</td>";
             echo "<td>{$item['price']}</td>";
@@ -76,6 +80,7 @@ class ItemView
         echo "<input type='hidden' value='{$item[0]['id']}' name='id'><br>";
         echo "<label for='{$item[0]['title']}'>Brand Name<br></label><input type='text' value='{$item[0]['title']}' name='title' ><br>";
         echo "<label for='{$item[0]['color']}'>Color<br></label><input type='text' value='{$item[0]['color']}' name='color' ><br>";
+        echo "<label for='{$item[0]['item_desc']}'>Description<br></label><textarea type='text' name='item_desc'>{$item[0]['item_desc']}</textarea><br>";
         echo "<label for='{$item[0]['price']}'>Price<br></label><input type='text' value='{$item[0]['price']}' name='price' ><br><br>";
         echo "<button type='submit'>Edit item</button>";
         echo "</form>";
