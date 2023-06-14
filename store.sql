@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 13 jun 2023 kl 17:27
+-- Tid vid skapande: 14 jun 2023 kl 08:24
 -- Serverversion: 10.4.28-MariaDB
 -- PHP-version: 8.2.4
 
@@ -42,7 +42,8 @@ INSERT INTO `brands` (`id`, `name`) VALUES
 (3, 'Top Vintage'),
 (4, 'Unique Vintage'),
 (5, 'Voodoo Vixen'),
-(6, 'Vivien Of Holloway');
+(6, 'Vivien Of Holloway'),
+(7, 'British Retro');
 
 -- --------------------------------------------------------
 
@@ -87,18 +88,19 @@ CREATE TABLE `sellers` (
   `username` varchar(32) NOT NULL,
   `first_name` varchar(32) NOT NULL,
   `last_name` varchar(32) NOT NULL,
-  `email` varchar(32) NOT NULL
+  `email` varchar(32) NOT NULL,
+  `phone` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumpning av Data i tabell `sellers`
 --
 
-INSERT INTO `sellers` (`id`, `username`, `first_name`, `last_name`, `email`) VALUES
-(1, 'Dressy', 'Anna', 'Andersson', 'anna.a@gmail.com'),
-(2, 'DressLover', 'Lisa', 'Nilsson', 'lisa@gmail.com'),
-(3, 'Cute_dress', 'Stina', 'Stensson', 'stina@gmail.com'),
-(4, 'RetroVintage', 'Amanda', 'Larsson', 'amanda@gmail.com');
+INSERT INTO `sellers` (`id`, `username`, `first_name`, `last_name`, `email`, `phone`) VALUES
+(1, 'AnnaA', 'Anna', 'Andersson', 'anna.a@gmail.com', '070 654 32 18'),
+(2, 'LisaN', 'Lisa', 'Nilsson', 'lisa@gmail.com', '080 987 46 21'),
+(3, 'StinaS', 'Stina', 'Stensson', 'stina@gmail.com', '076 159 48 35'),
+(4, 'AmandaL', 'Amanda', 'Larsson', 'amanda@gmail.com', '073 546 98 45');
 
 --
 -- Index för dumpade tabeller
@@ -132,19 +134,19 @@ ALTER TABLE `sellers`
 -- AUTO_INCREMENT för tabell `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT för tabell `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT för tabell `sellers`
 --
 ALTER TABLE `sellers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restriktioner för dumpade tabeller

@@ -28,18 +28,18 @@ class SellerModel extends DB
         return $statement->fetchAll();
     }
 
-    public function addSeller(string $username, string $firstname, string $lastname, string $email)
+    public function addSeller(string $username, string $firstname, string $lastname, string $email, string $phone)
     {
-        $sql = "INSERT INTO {$this->table} (username,first_name, last_name, email) VALUES (?,?,?,?)";
+        $sql = "INSERT INTO {$this->table} (username,first_name, last_name, email, phone) VALUES (?,?,?,?,?)";
         $statement = $this->pdo->prepare($sql);
-        $statement->execute([$username, $firstname, $lastname, $email]);
+        $statement->execute([$username, $firstname, $lastname, $email, $phone]);
     }
 
-    public function editSeller(string $username, string $firstname, string $lastname, string $email, int $id)
+    public function editSeller(string $username, string $firstname, string $lastname, string $email, string $phone, int $id)
     {
-        $sql = "UPDATE {$this->table} SET username = ?, first_name = ?, last_name = ?, email = ? WHERE id = ?";
+        $sql = "UPDATE {$this->table} SET username = ?, first_name = ?, last_name = ?, email = ?, phone = ? WHERE id = ?";
         $statement = $this->pdo->prepare($sql);
-        $statement->execute([$username, $firstname, $lastname, $email, $id]);
+        $statement->execute([$username, $firstname, $lastname, $email, $phone, $id]);
     }
 
     public function removeSeller(int $id)

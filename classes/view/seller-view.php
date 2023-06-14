@@ -13,6 +13,7 @@ class SellerView
         echo "<th>Name</th>";
         echo "<th>Last name</th>";
         echo "<th>E-mail</th>";
+        echo "<th>Phone</th>";
         echo "<th></th>";
         foreach ($sellers as $seller) {
             echo "<tr>";
@@ -20,6 +21,7 @@ class SellerView
             echo "<td>{$seller['first_name']}</td>";
             echo "<td>{$seller['last_name']}</td>";
             echo "<td>{$seller['email']}</td>";
+            echo "<td>{$seller['phone']}</td>";
             echo "<td>";
             echo "<button class='btnGreen'><a href='seller-details.php?id={$seller['id']}'>Info</a></button>";
             echo "<button class='btnEdit'><a href='seller-edit.php?id={$seller['id']}'>Edit</a></button>";
@@ -40,6 +42,7 @@ class SellerView
         echo "<label for='{$seller[0]['first_name']}'>Name<br></label><input type='text' value='{$seller[0]['first_name']}' name='first_name'><br><br>";
         echo "<label for='{$seller[0]['last_name']}'>Surname<br></label><input type='text' value='{$seller[0]['last_name']}' name='last_name'><br><br>";
         echo "<label for='{$seller[0]['email']}'>E-mail<br></label><input type='text' value='{$seller[0]['email']}' name='email'><br><br>";
+        echo "<label for='{$seller[0]['phone']}'>Phone number<br></label><input type='text' value='{$seller[0]['phone']}' name='phone'><br><br>";
         echo "<button type='submit'>Edit seller</button>";
         echo "</form>";
     }
@@ -62,6 +65,7 @@ class SellerView
         echo "<p>Name: {$seller[0]['first_name']}</p>";
         echo "<p>Surname: {$seller[0]['last_name']}</p>";
         echo "<p>Email: {$seller[0]['email']}</p>";
+        echo "<p>Phone: {$seller[0]['phone']}</p>";
         echo "<br>";
     }
 

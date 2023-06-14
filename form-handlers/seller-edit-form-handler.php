@@ -3,13 +3,14 @@
 require '../classes/model/seller-model.php';
 $sellerModel = new SellerModel(require '../partials/connect.php');
 
-if (isset($_POST['username'], $_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['id'])) {
+if (isset($_POST['username'], $_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['phone'], $_POST['id'])) {
     $username = filter_var($_POST['username'], FILTER_SANITIZE_SPECIAL_CHARS);
     $firstname = filter_var($_POST['first_name'], FILTER_SANITIZE_SPECIAL_CHARS);
     $lastname = filter_var($_POST['last_name'], FILTER_SANITIZE_SPECIAL_CHARS);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_SPECIAL_CHARS);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $phone = filter_var($_POST['phone'], FILTER_SANITIZE_SPECIAL_CHARS);
     $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
-    $sellerModel->editSeller($username, $firstname, $lastname, $email, $id);
+    $sellerModel->editSeller($username, $firstname, $lastname, $email, $phone, $id);
 
     header("Location: ../sellers.php");
 }

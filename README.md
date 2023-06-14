@@ -21,9 +21,9 @@ The database constists of these tables:
 
 ### Sellers
 
-| id (PK) | username    | first_name  | last_name   | email       |
-| ------- | ----------- | ----------- | ----------- | ----------- |
-| int     | varchar(32) | varchar(32) | varchar(32) | varchar(32) |
+| id (PK) | username    | first_name  | last_name   | email       | phone       |
+| ------- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| int     | varchar(32) | varchar(32) | varchar(32) | varchar(32) | varchar(15) |
 
 ### Brands
 
