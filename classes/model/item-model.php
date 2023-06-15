@@ -14,7 +14,7 @@ class ItemModel extends DB
 
     public function getItem(int $id)
     {
-        $sql = "SELECT i.*, c.item_condition, t.type FROM {$this->table} AS i JOIN conditions AS c ON c.id = i.condID JOIN types AS t ON t.id = i.typeID WHERE i.id = ?";
+        $sql = "SELECT i.*, c.id, c.item_condition, c.id, t.type FROM {$this->table} AS i RIGHT JOIN conditions AS c ON c.id = i.condID JOIN types AS t ON t.id = i.typeID WHERE i.id = ?";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$id]);
         return $statement->fetchAll();

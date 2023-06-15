@@ -78,28 +78,34 @@ class ItemView
         echo "</table>";
     }
 
-    public function renderEditItemForm($item)
+    public function renderEditItemForm($item, $conditions, $types)
     {
         echo "<h2>Edit item</h2>";
         echo "<form class='centerForm' action='form-handlers/item-edit-form-handler.php' method='post'>";
         echo "<br>";
         echo "<input type='hidden' value='{$item[0]['id']}' name='id'><br>";
-        echo "<label for='{$item[0]['title']}'>Brand Name<br></label><input type='text' value='{$item[0]['title']}' name='title' ><br><br>";
+        echo "<label for='{$item[0]['title']}'>Item name<br></label><input type='text' value='{$item[0]['title']}' name='title' ><br><br>";
         echo "<label for='{$item[0]['color']}'>Color<br></label><input type='text' value='{$item[0]['color']}' name='color' ><br><br>";
         echo "<label for='type'>Item type<br></label>";
         echo "<select name='typeID' id='typeID'>";
-        echo "<option value='{$item[0]['typeID']}'>
-                    {$item[0]['type']}
+        echo "<option value='{$item[0]['typeID']}'>{$types[0]['type']}</option>";
+        foreach ($types as $type) {
+            echo "<option id='{$item['typeID']}'value='{$type['id']}'>
+                    {$type['type']}
                 </option>";
+        }
         echo "</select><br><br>";
         echo "<label for='condition'>Item condition<br></label>";
         echo "<select name='condID' id='condID'>";
-        echo "<option value='{$item[0]['condID']}'>
-                    {$item[0]['item_condition']}
+        echo "<option '{$item[0]['typeID']}' value='{$item[0]['condID']}'>{$item[0]['item_condition']}</option>";
+        foreach ($conditions as $condition) {
+            echo "<option id=''{$condition['condID']}' value='{$condition['id']}'>
+                    {$condition['item_condition']}
                 </option>";
+        }
         echo "</select><br><br>";
         echo "<label for='{$item[0]['item_desc']}'>Description<br></label><textarea type='text' name='item_desc'>{$item[0]['item_desc']}</textarea><br>";
-        echo "<label for='{$item[0]['price']}'>Price<br></label><input type='text' value='{$item[0]['price']}' name='price' ><br><br>";
+        echo "<label for='{$item[0]['price']}'>Price<br></label><input type='text' value='{$item[0]['price']}' name='price' ><br><br><br>";
         echo "<button type='submit'>Edit item</button>";
         echo "</form>";
     }

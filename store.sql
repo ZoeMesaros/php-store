@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 15 jun 2023 kl 11:26
+-- Tid vid skapande: 15 jun 2023 kl 15:30
 -- Serverversion: 10.4.28-MariaDB
 -- PHP-version: 8.2.4
 
@@ -174,7 +174,8 @@ ALTER TABLE `items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_seller` (`sellerID`),
   ADD KEY `fk_brand` (`brandID`),
-  ADD KEY `fl_condition` (`condID`);
+  ADD KEY `fl_condition` (`condID`),
+  ADD KEY `fk_type` (`typeID`);
 
 --
 -- Index för tabell `sellers`
@@ -232,6 +233,7 @@ ALTER TABLE `types`
 ALTER TABLE `items`
   ADD CONSTRAINT `fk_brand` FOREIGN KEY (`brandID`) REFERENCES `brands` (`id`),
   ADD CONSTRAINT `fk_seller` FOREIGN KEY (`sellerID`) REFERENCES `sellers` (`id`),
+  ADD CONSTRAINT `fk_type` FOREIGN KEY (`typeID`) REFERENCES `types` (`id`),
   ADD CONSTRAINT `fl_condition` FOREIGN KEY (`condID`) REFERENCES `conditions` (`id`);
 COMMIT;
 
