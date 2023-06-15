@@ -78,7 +78,7 @@ class ItemView
         echo "</table>";
     }
 
-    public function renderEditItemForm($item, $conditions, $types)
+    public function renderEditItemForm($item, $condition, $type)
     {
         echo "<h2>Edit item</h2>";
         echo "<form class='centerForm' action='form-handlers/item-edit-form-handler.php' method='post'>";
@@ -88,21 +88,22 @@ class ItemView
         echo "<label for='{$item[0]['color']}'>Color<br></label><input type='text' value='{$item[0]['color']}' name='color' ><br><br>";
         echo "<label for='type'>Item type<br></label>";
         echo "<select name='typeID' id='typeID'>";
-        echo "<option value='{$item[0]['typeID']}'>{$types[0]['type']}</option>";
-        foreach ($types as $type) {
-            echo "<option id='{$item['typeID']}'value='{$type['id']}'>
-                    {$type['type']}
-                </option>";
-        }
+        echo "<option value='{$item[0]['typeID']}'>{$item[0]['type']}</option>";
+        echo "<option value='{$item[1]['typeID']}'>{$type[1]['type']}</option>";
+        echo "<option value='{$item[2]['typeID']}'>{$type[2]['type']}</option>";
+        echo "<option value='{$item[3]['typeID']}'>{$type[3]['type']}</option>";
+        echo "<option value='{$item[4]['typeID']}'>{$type[4]['type']}</option>";
+        echo "<option value='{$item[5]['typeID']}'>{$type[5]['type']}</option>";
+        echo "<option value='{$item[6]['typeID']}'>{$type[6]['type']}</option>";
+        echo "<option value='{$item[7]['typeID']}'>{$type[7]['type']}</option>";
         echo "</select><br><br>";
         echo "<label for='condition'>Item condition<br></label>";
         echo "<select name='condID' id='condID'>";
-        echo "<option '{$item[0]['typeID']}' value='{$item[0]['condID']}'>{$item[0]['item_condition']}</option>";
-        foreach ($conditions as $condition) {
-            echo "<option id=''{$condition['condID']}' value='{$condition['id']}'>
-                    {$condition['item_condition']}
-                </option>";
-        }
+        echo "<option value='{$item[0]['condID']}'>{$item[0]['item_condition']}</option>";
+        echo "<option value='{$item[1]['condID']}'>{$condition[1]['item_condition']}</option>";
+        echo "<option value='{$item[2]['condID']}'>{$condition[2]['item_condition']}</option>";
+        echo "<option value='{$item[3]['condID']}'>{$condition[3]['item_condition']}</option>";
+        echo "<option value='{$item[4]['condID']}'>{$condition[4]['item_condition']}</option>";
         echo "</select><br><br>";
         echo "<label for='{$item[0]['item_desc']}'>Description<br></label><textarea type='text' name='item_desc'>{$item[0]['item_desc']}</textarea><br>";
         echo "<label for='{$item[0]['price']}'>Price<br></label><input type='text' value='{$item[0]['price']}' name='price' ><br><br><br>";

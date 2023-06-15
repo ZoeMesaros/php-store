@@ -15,6 +15,7 @@ class ItemController
         $this->view = $itemView;
         $this->model2 = $conditionModel;
         $this->model3 = $typeModel;
+
     }
 
     public function edit()

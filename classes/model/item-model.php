@@ -57,11 +57,11 @@ class ItemModel extends DB
         $statement->execute([$id]);
     }
 
-    public function editItem(string $title, string $color, int $typeid, int $condid, string $desc, int $price, int $id)
+    public function editItem(string $title, string $color, int $typeid, int $condid, string $desc, int $price, string $dateadded, int $id)
     {
-        $sql = "UPDATE {$this->table} SET title = ?, color = ?, typeID = ?, condID = ?, item_desc = ?, price = ? WHERE id = ?";
+        $sql = "UPDATE {$this->table} SET title = ?, color = ?, typeID = ?, condID = ?, item_desc = ?, price = ?, date_added = ? WHERE id = ?";
         $statement = $this->pdo->prepare($sql);
-        $statement->execute([$title, $color, $typeid, $condid, $desc, $price, $id]);
+        $statement->execute([$title, $color, $typeid, $condid, $desc, $price, $dateadded, $id]);
     }
 
     public function sellItem(string $datesold, int $id)
