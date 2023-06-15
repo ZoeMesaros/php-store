@@ -10,6 +10,7 @@ class ItemView
         echo "<table class='center'>";
         echo "<th>Name</th>";
         echo "<th>Color</th>";
+        echo "<th>type</th>";
         echo "<th>Brand</th>";
         echo "<th>Condition</th>";
         echo "<th>Description</th>";
@@ -23,6 +24,7 @@ class ItemView
             echo "<tr>";
             echo "<td class='centerData'>{$item['title']}</td>";
             echo "<td>{$item['color']}</td>";
+            echo "<td>{$item['type']}</td>";
             echo "<td>{$item['name']}</td>";
             echo "<td>{$item['item_condition']}</td>";
             echo "<td>{$item['item_desc']}</td>";
@@ -45,7 +47,9 @@ class ItemView
         echo "<table class='center'>";
         echo "<th>Item</th>";
         echo "<th>Color</th>";
+        echo "<th>Type</th>";
         echo "<th>Brand</th>";
+        echo "<th>Condition</th>";
         echo "<th>Sold by</th>";
         echo "<th>Date added</th>";
         echo "<th>Date sold</th>";
@@ -58,7 +62,9 @@ class ItemView
             echo "<tr>";
             echo "<td>{$item['title']}</td>";
             echo "<td>{$item['color']}</td>";
+            echo "<td>{$item['type']}</td>";
             echo "<td>{$item['name']}</td>";
+            echo "<td>{$item['item_condition']}</td>";
             echo "<td>{$item['username']}</td>";
             echo "<td>{$item['date_added']}</td>";
             echo "<td>{$item['date_sold']}</td>";
@@ -78,8 +84,20 @@ class ItemView
         echo "<form class='centerForm' action='form-handlers/item-edit-form-handler.php' method='post'>";
         echo "<br>";
         echo "<input type='hidden' value='{$item[0]['id']}' name='id'><br>";
-        echo "<label for='{$item[0]['title']}'>Brand Name<br></label><input type='text' value='{$item[0]['title']}' name='title' ><br>";
-        echo "<label for='{$item[0]['color']}'>Color<br></label><input type='text' value='{$item[0]['color']}' name='color' ><br>";
+        echo "<label for='{$item[0]['title']}'>Brand Name<br></label><input type='text' value='{$item[0]['title']}' name='title' ><br><br>";
+        echo "<label for='{$item[0]['color']}'>Color<br></label><input type='text' value='{$item[0]['color']}' name='color' ><br><br>";
+        echo "<label for='type'>Item type<br></label>";
+        echo "<select name='typeID' id='typeID'>";
+        echo "<option value='{$item[0]['typeID']}'>
+                    {$item[0]['type']}
+                </option>";
+        echo "</select><br><br>";
+        echo "<label for='condition'>Item condition<br></label>";
+        echo "<select name='condID' id='condID'>";
+        echo "<option value='{$item[0]['condID']}'>
+                    {$item[0]['item_condition']}
+                </option>";
+        echo "</select><br><br>";
         echo "<label for='{$item[0]['item_desc']}'>Description<br></label><textarea type='text' name='item_desc'>{$item[0]['item_desc']}</textarea><br>";
         echo "<label for='{$item[0]['price']}'>Price<br></label><input type='text' value='{$item[0]['price']}' name='price' ><br><br>";
         echo "<button type='submit'>Edit item</button>";

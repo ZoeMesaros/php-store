@@ -25,6 +25,12 @@ The database constists of these tables:
 | ------- | ----------- | ----------- | ----------- | ----------- | ----------- |
 | int     | varchar(32) | varchar(32) | varchar(32) | varchar(32) | varchar(15) |
 
+### Types
+
+| id (PK) | type        |
+| ------- | ----------- |
+| int     | varchar(32) |
+
 ### Conditions
 
 | id (PK) | item_condition |
@@ -39,13 +45,13 @@ The database constists of these tables:
 
 ### Items
 
-| id  | title       | color       | brandID (FK) &#128273; | sellerID (FK) &#128273; | condID (FK) &#128273; | item_desc    | price | date_added | date_sold |
-| --- | ----------- | ----------- | ---------------------- | ----------------------- | --------------------- | ------------ | ----- | ---------- | --------- |
-| int | varchar(50) | varchar(11) | int                    | int                     | int                   | varchar(250) | int   | date       | date      |
+| id  | title       | color       | typeID (FK) &#128273; | brandID (FK) &#128273; | sellerID (FK) &#128273; | condID (FK) &#128273; | item_desc    | price | date_added | date_sold |
+| --- | ----------- | ----------- | --------------------- | ---------------------- | ----------------------- | --------------------- | ------------ | ----- | ---------- | --------- |
+| int | varchar(50) | varchar(11) | int                   | int                    | int                     | int                   | varchar(250) | int   | date       | date      |
 
 ## Usage
 
-1. Create a user account in a Sql program of your choice and create a new database "store" using the details found in config.php.
+1. Create a user account in an SQL program of your choice and create a new database "store" using username and password found in config.php.
 2. Import store.sql to your newly created database.
 
 ## Features
@@ -75,7 +81,7 @@ Brands Page
 - Shows all brands and lets you add new ones.
 - You can edit or delete existing brands in the list.
 
-Future ideas:
+Future implementations:
 
 - Buyer page to display all dresses with pictures.
 - Buyer account registration.
