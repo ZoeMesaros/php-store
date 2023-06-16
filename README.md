@@ -44,32 +44,32 @@ The database constists of these tables:
 
 ## Features
 
-# Home page
+### Home page
 
 - Shows you the statistics of all sales and economy section with details of the distribution of profits and taxes.
 
-# Sales page
+### Sales page
 
 - Shows you all dresses that are up for sale and allow you to add new ones. Tax is automatically calculated.
 - Allows you to mark an item as sold.
 - You can edit or fully remove an item.
 
-# Sold page
+### Sold page
 
 - Gives you an overview of all dresses that has been sold with sell date, seller information and economy.
 
-# Sellers Page
+### Sellers Page
 
 - You can view all sellers and add new ones to the page.
 - You can edit or delete existing sellers in the list.
 - Information page for every seller which consists of full details, number of sales and other relevant information.
 
-# Brands Page
+### Brands Page
 
 - Shows all brands and lets you add new ones.
 - You can edit or delete existing brands in the list.
 
-# Future implementations:
+### Future implementations:
 
 - Buyer page to display all dresses with pictures.
 - Buyer account registration.
