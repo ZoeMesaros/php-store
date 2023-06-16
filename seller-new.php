@@ -11,6 +11,6 @@ $sellerView = new SellerView();
 include 'partials/header.php';
 include 'partials/nav.php';
 
+$sellerView->renderAddNewSeller($sellerModel->getAllSellers());
 
-include 'partials/forms/seller-form.php';
 include 'partials/footer.php';

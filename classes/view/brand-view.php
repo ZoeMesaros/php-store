@@ -44,4 +44,14 @@ class BrandView
         echo "<button type='submit'>Delete brand</button>";
         echo "</form>";
     }
+
+    public function renderAddNewBrandForm($brand)
+    {
+        echo "<h2>Add new brand</h2>
+        <form action='form-handlers/brand-form-handler.php' method='post'>
+            <label for='name'>Brand name<br> </label><input type='text' name='name' id='name'><br><br>
+            <button type='submit'>Add new</button>
+        </form>";
+    }
+
 }

@@ -11,5 +11,6 @@ $brandView = new BrandView();
 include 'partials/header.php';
 include 'partials/nav.php';
 
-include 'partials/forms/brand-form.php';
+$brandView->renderAddNewBrandForm($brandModel->getAllBrands());
+
 include 'partials/footer.php';
