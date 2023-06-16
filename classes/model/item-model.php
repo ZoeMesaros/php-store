@@ -45,7 +45,7 @@ class ItemModel extends DB
     }
     public function addItem(string $title, string $color, string $desc, int $brandid, int $sellerid, int $price, string $dateadded)
     {
-        $sql = "INSERT INTO {$this->table} (title,color,item_desc,brandID,sellerID,price,date_added) VALUES (?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO {$this->table} (title,color,item_desc,brandID,sellerID,price,date_added) VALUES (?,?,?,?,?,?,?)";
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$title, $color, $desc, $brandid, $sellerid, $price, $dateadded]);
     }

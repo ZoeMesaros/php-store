@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Värd: 127.0.0.1
--- Tid vid skapande: 16 jun 2023 kl 10:29
+-- Tid vid skapande: 16 jun 2023 kl 10:43
 -- Serverversion: 10.4.28-MariaDB
 -- PHP-version: 8.2.4
 
@@ -67,12 +67,13 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `title`, `color`, `brandID`, `sellerID`, `item_desc`, `price`, `date_added`, `date_sold`) VALUES
-(1, 'Wild Rose', 'ff', 6, 2, 'Has n', 85, '2023-06-13', '2023-06-16'),
+(1, 'Wild Rose', 'Pink', 6, 2, 'Never been worn', 85, '2023-06-13', '2023-06-16'),
 (2, 'Cupid Heart Button Dress', 'Pink', 5, 3, 'Small scratches', 380, '2023-06-04', NULL),
-(3, 'Black and White Polka Dot Dress', 'White', 3, 2, 'No signs of wear', 450, '2023-03-16', '2023-04-04'),
+(3, 'Black and White Polka Dot Dress', 'White', 3, 2, 'No signs of wear', 450, '2023-03-16', NULL),
 (4, 'Lana Dress', 'Aqua', 6, 1, 'Has never been worn', 550, '2023-05-17', '2023-05-19'),
 (5, 'Leopard Print Dress', 'Beige', 2, 3, 'Tags are still attached', 350, '2023-04-12', NULL),
-(6, 'Layla Floral Dress', 'White', 2, 1, 'Some small spots and pulled threads', 430, '2023-03-12', '2023-04-04');
+(6, 'Layla Floral Dress', 'White', 2, 1, 'Some small spots and pulled threads', 430, '2023-03-12', '2023-04-04'),
+(7, 'Megan Check Dress', 'Multicolor', 5, 4, 'In nice condition', 250, '2023-06-16', NULL);
 
 -- --------------------------------------------------------
 
@@ -96,7 +97,8 @@ CREATE TABLE `sellers` (
 INSERT INTO `sellers` (`id`, `username`, `first_name`, `last_name`, `email`, `phone`) VALUES
 (1, 'AnnaA', 'Anna', 'Andersson', 'anna.a@gmail.com', '070 654 32 18'),
 (2, 'LisaN', 'Lisa', 'Nilsson', 'lisa@gmail.com', '080 987 46 21'),
-(3, 'StinaS', 'Stina', 'St', 'st@gmail.com', '076 159 48 35');
+(3, 'StinaS', 'Stina', 'Stensson', 'st@gmail.com', '076 159 48 35'),
+(4, 'BrittaP', 'Britta', 'Persson', 'britta@gmail.com', '070 648 54 64');
 
 --
 -- Index för dumpade tabeller
@@ -130,19 +132,19 @@ ALTER TABLE `sellers`
 -- AUTO_INCREMENT för tabell `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT för tabell `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT för tabell `sellers`
 --
 ALTER TABLE `sellers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restriktioner för dumpade tabeller

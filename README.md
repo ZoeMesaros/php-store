@@ -39,7 +39,7 @@ The database constists of these tables:
 
 ## Usage
 
-1. Create a user account in an SQL program of your choice and create a new database "store" using username and password found in config.php.
+1. Create a user account in an SQL program of your choice and create a new database "store" using username and password found in partials/config.php.
 2. Import store.sql to your newly created database.
 
 ## Features
